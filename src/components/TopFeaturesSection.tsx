@@ -283,12 +283,22 @@ function RelayVisual() {
             />
             <RelayRow
               name="relay.snort.social"
-              types={['DM', 'Private']}
+              types={['DM']}
               status="connected"
             />
             <RelayRow
-              name="relay.nostr.band"
-              types={['Search', 'Indexer']}
+              name="auth1.nostr1.com"
+              types={['DM']}
+              status="connected"
+            />
+            <RelayRow
+              name="relay.noswhere.com"
+              types={['Search']}
+              status="connected"
+            />
+            <RelayRow
+              name="purplepag.es"
+              types={['Indexer']}
               status="connected"
             />
             <RelayRow
@@ -308,7 +318,7 @@ function RelayVisual() {
             <span className="text-muted-foreground">11 relay types supported</span>
             <span className="text-green-400 flex items-center gap-1">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              4 connected
+              6 connected
             </span>
           </div>
         </div>
