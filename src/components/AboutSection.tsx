@@ -5,7 +5,7 @@ const aboutPoints = [
   {
     icon: Shield,
     title: 'Privacy by Design',
-    description: 'Native TOR integration hides your IP address. End-to-end encrypted DMs. Your digital footprint stays invisible.',
+    description: 'Native TOR integration hides your IP address. Your digital footprint stays invisible.',
   },
   {
     icon: Globe,
@@ -20,7 +20,7 @@ const aboutPoints = [
   {
     icon: Users,
     title: 'Censorship Resistant',
-    description: 'No central authority can silence you. Your voice, your content, your network—accessible even through TOR.',
+    description: 'No central authority can silence you. Your voice, your content.',
   },
   {
     icon: Code,
