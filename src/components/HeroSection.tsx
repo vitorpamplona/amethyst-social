@@ -100,30 +100,7 @@ export function HeroSection() {
                 className="relative w-full max-w-md lg:max-w-lg rounded-3xl shadow-2xl shadow-purple-900/50 border border-purple-500/20"
               />
 
-              {/* Floating Elements */}
-              <div className="absolute -top-4 -left-4 p-4 bg-purple-950/80 backdrop-blur-xl rounded-2xl shadow-xl border border-purple-500/20 animate-float">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-amethyst-gradient flex items-center justify-center shadow-lg shadow-purple-500/30">
-                    <Zap className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-white">Private Zaps</p>
-                    <p className="text-xs text-purple-300">Built-in support</p>
-                  </div>
-                </div>
-              </div>
 
-              <div className="absolute -bottom-4 -right-4 p-4 bg-purple-950/80 backdrop-blur-xl rounded-2xl shadow-xl border border-purple-500/20 animate-float" style={{ animationDelay: '1s' }}>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-amethyst-gradient flex items-center justify-center shadow-lg shadow-purple-500/30">
-                    <Shield className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-white">Encrypted DMs</p>
-                    <p className="text-xs text-purple-300">NIP-17 Support</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
