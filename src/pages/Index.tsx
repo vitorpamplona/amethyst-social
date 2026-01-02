@@ -3,6 +3,7 @@ import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/HeroSection';
 import { AboutSection } from '@/components/AboutSection';
 import { FeaturesSection } from '@/components/FeaturesSection';
+import { ScreenshotsSection } from '@/components/ScreenshotsSection';
 import { UpdatesSection } from '@/components/UpdatesSection';
 import { DownloadSection } from '@/components/DownloadSection';
 import { ObtainiumGuide } from '@/components/ObtainiumGuide';
@@ -25,6 +26,7 @@ const Index = () => {
         <HeroSection />
         <AboutSection />
         <FeaturesSection />
+        <ScreenshotsSection />
         <UpdatesSection />
         <DownloadSection />
         <ObtainiumGuide />

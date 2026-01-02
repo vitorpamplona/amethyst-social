@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { NoteContent } from '@/components/NoteContent';
-import { ExternalLink, RefreshCw, Heart, Repeat2, MessageCircle } from 'lucide-react';
+import { ExternalLink, RefreshCw } from 'lucide-react';
 import type { NostrEvent } from '@nostrify/nostrify';
 
 function formatRelativeTime(timestamp: number): string {
@@ -61,22 +61,6 @@ function UpdateCard({ event, profile }: { event: NostrEvent; profile: { name?: s
       <CardContent className="pt-0">
         <div className="text-sm text-foreground leading-relaxed whitespace-pre-wrap break-words">
           <NoteContent event={event} />
-        </div>
-
-        {/* Engagement hints (visual only) */}
-        <div className="flex items-center gap-6 mt-4 pt-4 border-t border-border/50">
-          <div className="flex items-center gap-1.5 text-muted-foreground">
-            <Heart className="w-4 h-4" />
-            <span className="text-xs">Like</span>
-          </div>
-          <div className="flex items-center gap-1.5 text-muted-foreground">
-            <Repeat2 className="w-4 h-4" />
-            <span className="text-xs">Repost</span>
-          </div>
-          <div className="flex items-center gap-1.5 text-muted-foreground">
-            <MessageCircle className="w-4 h-4" />
-            <span className="text-xs">Reply</span>
-          </div>
         </div>
       </CardContent>
     </Card>
