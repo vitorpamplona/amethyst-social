@@ -1,4 +1,4 @@
-import { ArrowDown, Play, Shield, Zap } from 'lucide-react';
+import { ArrowDown, Play, Shield, Zap, Code } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export function HeroSection() {
@@ -79,7 +79,7 @@ export function HeroSection() {
               </div>
               <div className="text-center lg:text-left">
                 <div className="flex items-center justify-center lg:justify-start gap-2">
-                  <Zap className="w-5 h-5 text-primary" />
+                  <Code className="w-5 h-5 text-primary" />
                   <span className="text-2xl md:text-3xl font-bold text-foreground">100%</span>
                 </div>
                 <p className="text-sm text-muted-foreground mt-1">Open Source</p>
@@ -97,7 +97,7 @@ export function HeroSection() {
               <img
                 src="/amethyst-hero.webp"
                 alt="Amethyst App Screenshot"
-                className="relative w-full max-w-lg lg:max-w-xl xl:max-w-2xl rounded-3xl shadow-2xl shadow-purple-900/50 border border-purple-500/20"
+                className="relative w-full max-w-xl lg:max-w-2xl xl:max-w-3xl rounded-3xl shadow-2xl shadow-purple-900/50 border border-purple-500/20"
               />
 
 
