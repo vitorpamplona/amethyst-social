@@ -44,11 +44,11 @@ const featureCategories = [
   {
     title: 'Media & Content',
     features: [
-      { icon: Radio, name: 'Live Streams', description: 'Watch and host NIP-53 live events', badge: 'Live' },
+      { icon: Radio, name: 'Live Streams', description: 'Watch and interact with NIP-53 live streams', badge: 'Live' },
       { icon: Video, name: 'Video Events', description: 'NIP-71 video support' },
       { icon: Image, name: 'Media Previews', description: 'Rich image and video previews' },
       { icon: FileText, name: 'Long-form Content', description: 'Read NIP-23 articles' },
-      { icon: Music, name: 'Audio Tracks', description: 'Zapstr.live integration' },
+      { icon: Music, name: 'Audio Tracks', description: 'YakBak and NIP-A0 integration' },
       { icon: Camera, name: 'In-app Capture', description: 'Take photos and videos directly' },
     ],
   },
