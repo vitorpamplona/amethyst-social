@@ -48,17 +48,18 @@ const downloadOptions = [
 
 export function DownloadSection() {
   return (
-    <section id="download" className="py-24 md:py-32 relative overflow-hidden bg-secondary/30">
+    <section id="download" className="py-24 md:py-32 relative overflow-hidden bg-purple-950/30">
       {/* Background */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      <div className="absolute -top-48 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent" />
+      <div className="absolute -top-48 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-cyan-600/10 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-purple-200/50 dark:border-purple-700/50 mb-6">
-            <Smartphone className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Download Now</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-900/40 border border-purple-500/20 backdrop-blur-sm mb-6">
+            <Smartphone className="w-4 h-4 text-purple-400" />
+            <span className="text-sm font-medium text-purple-300">Download Now</span>
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6">
@@ -78,16 +79,16 @@ export function DownloadSection() {
           {downloadOptions.map((option, index) => (
             <Card
               key={option.name}
-              className="group relative overflow-hidden border-border/50 bg-card/80 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10"
+              className="group relative overflow-hidden border-purple-500/10 bg-purple-950/50 backdrop-blur-sm hover:border-purple-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Gradient hover effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-cyan-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               <CardHeader className="relative z-10">
                 <div className="flex items-start justify-between mb-4">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/10 to-cyan-500/10 border border-purple-200/50 dark:border-purple-700/50 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <option.icon className="w-7 h-7 text-primary" />
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-600/20 to-cyan-600/10 border border-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <option.icon className="w-7 h-7 text-purple-400" />
                   </div>
                   <Badge variant={option.badgeVariant} className={option.badgeVariant === 'default' ? 'bg-primary text-primary-foreground' : ''}>
                     {option.badge}

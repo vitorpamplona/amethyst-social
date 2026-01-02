@@ -22,7 +22,7 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="relative bg-secondary/50 border-t border-border">
+    <footer className="relative bg-purple-950/50 border-t border-purple-500/20">
       {/* Main Footer */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -48,7 +48,7 @@ export function Footer() {
                 href="https://github.com/vitorpamplona/amethyst"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-secondary border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
+                className="w-10 h-10 rounded-full bg-purple-900/50 border border-purple-500/20 flex items-center justify-center hover:border-purple-400 hover:text-purple-400 transition-colors"
               >
                 <Github className="w-5 h-5" />
               </a>
@@ -56,7 +56,7 @@ export function Footer() {
                 href={`https://njump.me/${AMETHYST_NPUB}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-secondary border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
+                className="w-10 h-10 rounded-full bg-purple-900/50 border border-purple-500/20 flex items-center justify-center hover:border-purple-400 hover:text-purple-400 transition-colors"
               >
                 <span className="font-bold text-sm">N</span>
               </a>
@@ -124,7 +124,7 @@ export function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-border">
+      <div className="border-t border-purple-500/20">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <p>

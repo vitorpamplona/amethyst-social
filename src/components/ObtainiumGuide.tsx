@@ -38,14 +38,15 @@ export function ObtainiumGuide() {
   return (
     <section id="obtainium-guide" className="py-24 md:py-32 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent" />
+      <div className="absolute bottom-1/4 -left-32 w-80 h-80 bg-purple-600/15 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-purple-200/50 dark:border-purple-700/50 mb-6">
-            <Download className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Installation Guide</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-900/40 border border-purple-500/20 backdrop-blur-sm mb-6">
+            <Download className="w-4 h-4 text-purple-400" />
+            <span className="text-sm font-medium text-purple-300">Installation Guide</span>
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6">
@@ -62,7 +63,7 @@ export function ObtainiumGuide() {
 
         {/* Video Tutorial */}
         <div className="max-w-4xl mx-auto mb-16">
-          <Card className="overflow-hidden border-border/50 bg-card/80 backdrop-blur-sm">
+          <Card className="overflow-hidden border-purple-500/20 bg-purple-950/50 backdrop-blur-sm">
             <CardHeader className="text-center">
               <div className="flex items-center justify-center gap-2 mb-2">
                 <Video className="w-5 h-5 text-primary" />
@@ -100,10 +101,10 @@ export function ObtainiumGuide() {
             {steps.map((step, index) => (
               <Card
                 key={step.number}
-                className="group relative overflow-hidden border-border/50 bg-card/80 backdrop-blur-sm hover:border-primary/30 transition-all duration-300"
+                className="group relative overflow-hidden border-purple-500/10 bg-purple-950/40 backdrop-blur-sm hover:border-purple-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-cyan-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 <CardContent className="p-6 relative z-10">
                   <div className="flex items-start gap-4">
@@ -157,26 +158,26 @@ export function ObtainiumGuide() {
           </h3>
 
           <div className="grid sm:grid-cols-3 gap-4">
-            <div className="p-4 rounded-xl bg-secondary/50 border border-border/50">
-              <CheckCircle className="w-6 h-6 text-primary mx-auto mb-2" />
+            <div className="p-4 rounded-xl bg-purple-900/30 border border-purple-500/20">
+              <CheckCircle className="w-6 h-6 text-purple-400 mx-auto mb-2" />
               <h4 className="font-semibold mb-1">No Delays</h4>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-purple-300/70">
                 Get updates immediately when released
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-secondary/50 border border-border/50">
-              <CheckCircle className="w-6 h-6 text-primary mx-auto mb-2" />
+            <div className="p-4 rounded-xl bg-purple-900/30 border border-purple-500/20">
+              <CheckCircle className="w-6 h-6 text-purple-400 mx-auto mb-2" />
               <h4 className="font-semibold mb-1">Privacy First</h4>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-purple-300/70">
                 No app store tracking or accounts
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-secondary/50 border border-border/50">
-              <CheckCircle className="w-6 h-6 text-primary mx-auto mb-2" />
+            <div className="p-4 rounded-xl bg-purple-900/30 border border-purple-500/20">
+              <CheckCircle className="w-6 h-6 text-purple-400 mx-auto mb-2" />
               <h4 className="font-semibold mb-1">Open Source</h4>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-purple-300/70">
                 Fully transparent and community-driven
               </p>
             </div>

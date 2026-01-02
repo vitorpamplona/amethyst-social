@@ -81,17 +81,17 @@ const highlightedNIPs = [
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="py-24 md:py-32 relative overflow-hidden bg-secondary/30">
+    <section id="features" className="py-24 md:py-32 relative overflow-hidden bg-purple-950/30">
       {/* Background Elements */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      <div className="absolute -top-48 -right-48 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
-      <div className="absolute -bottom-48 -left-48 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent" />
+      <div className="absolute -top-48 -right-48 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl" />
+      <div className="absolute -bottom-48 -left-48 w-96 h-96 bg-cyan-600/15 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-purple-200/50 dark:border-purple-700/50 mb-6">
-            <span className="text-sm font-medium text-primary">Packed with Features</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-900/40 border border-purple-500/20 backdrop-blur-sm mb-6">
+            <span className="text-sm font-medium text-purple-300">Packed with Features</span>
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6">
@@ -118,15 +118,15 @@ export function FeaturesSection() {
                 {category.features.map((feature, featureIndex) => (
                   <Card
                     key={feature.name}
-                    className="group relative overflow-hidden border-border/50 bg-card/80 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
+                    className="group relative overflow-hidden border-purple-500/10 bg-purple-950/50 backdrop-blur-sm hover:border-purple-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20"
                     style={{ animationDelay: `${(categoryIndex * 0.1) + (featureIndex * 0.05)}s` }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-cyan-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                     <CardContent className="p-5 relative z-10">
                       <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500/10 to-cyan-500/10 border border-purple-200/50 dark:border-purple-700/50 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
-                          <feature.icon className="w-5 h-5 text-primary" />
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600/20 to-cyan-600/10 border border-purple-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                          <feature.icon className="w-5 h-5 text-purple-400" />
                         </div>
 
                         <div className="flex-1 min-w-0">

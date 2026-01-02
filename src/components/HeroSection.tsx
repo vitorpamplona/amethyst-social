@@ -7,12 +7,16 @@ export function HeroSection() {
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Gradient Orbs - Purple to Teal matching logo */}
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-400/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-purple-600/30 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-600/15 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-purple-700/20 rounded-full blur-3xl" />
 
         {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(124,93,181,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(124,93,181,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(139,112,191,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(139,112,191,0.05)_1px,transparent_1px)] bg-[size:64px_64px]" />
+
+        {/* Noise texture overlay */}
+        <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")' }} />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -20,12 +24,12 @@ export function HeroSection() {
           {/* Left Column - Text Content */}
           <div className="text-center lg:text-left space-y-8">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-purple-200/50 dark:border-purple-700/50 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500/20 backdrop-blur-sm animate-fade-in">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-amethyst-gradient"></span>
               </span>
-              <span className="text-sm font-medium text-muted-foreground">
+              <span className="text-sm font-medium text-purple-200">
                 Open Source Nostr Client
               </span>
             </div>
@@ -87,36 +91,36 @@ export function HeroSection() {
           <div className="relative flex justify-center lg:justify-end animate-scale-in" style={{ animationDelay: '0.2s' }}>
             <div className="relative">
               {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-cyan-500/30 blur-3xl rounded-3xl scale-90" />
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/40 to-cyan-500/30 blur-3xl rounded-3xl scale-95" />
 
               {/* Main Image */}
               <img
                 src="/amethyst-hero.webp"
                 alt="Amethyst App Screenshot"
-                className="relative w-full max-w-md lg:max-w-lg rounded-3xl shadow-2xl"
+                className="relative w-full max-w-md lg:max-w-lg rounded-3xl shadow-2xl shadow-purple-900/50 border border-purple-500/20"
               />
 
               {/* Floating Elements */}
-              <div className="absolute -top-4 -left-4 p-4 bg-card rounded-2xl shadow-xl border border-border animate-float">
+              <div className="absolute -top-4 -left-4 p-4 bg-purple-950/80 backdrop-blur-xl rounded-2xl shadow-xl border border-purple-500/20 animate-float">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-amethyst-gradient flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-amethyst-gradient flex items-center justify-center shadow-lg shadow-purple-500/30">
                     <Zap className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold">Private Zaps</p>
-                    <p className="text-xs text-muted-foreground">Built-in support</p>
+                    <p className="text-sm font-semibold text-white">Private Zaps</p>
+                    <p className="text-xs text-purple-300">Built-in support</p>
                   </div>
                 </div>
               </div>
 
-              <div className="absolute -bottom-4 -right-4 p-4 bg-card rounded-2xl shadow-xl border border-border animate-float" style={{ animationDelay: '1s' }}>
+              <div className="absolute -bottom-4 -right-4 p-4 bg-purple-950/80 backdrop-blur-xl rounded-2xl shadow-xl border border-purple-500/20 animate-float" style={{ animationDelay: '1s' }}>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-amethyst-gradient flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-amethyst-gradient flex items-center justify-center shadow-lg shadow-purple-500/30">
                     <Shield className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold">Encrypted DMs</p>
-                    <p className="text-xs text-muted-foreground">NIP-17 Support</p>
+                    <p className="text-sm font-semibold text-white">Encrypted DMs</p>
+                    <p className="text-xs text-purple-300">NIP-17 Support</p>
                   </div>
                 </div>
               </div>
