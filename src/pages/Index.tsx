@@ -2,6 +2,7 @@ import { useSeoMeta } from '@unhead/react';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/HeroSection';
 import { AboutSection } from '@/components/AboutSection';
+import { TopFeaturesSection } from '@/components/TopFeaturesSection';
 import { FeaturesSection } from '@/components/FeaturesSection';
 import { ScreenshotsSection } from '@/components/ScreenshotsSection';
 import { UpdatesSection } from '@/components/UpdatesSection';
@@ -12,9 +13,9 @@ import { Footer } from '@/components/Footer';
 const Index = () => {
   useSeoMeta({
     title: 'Amethyst - Nostr Client for Android',
-    description: 'Join the social network you control. Amethyst is a beautiful, feature-rich Nostr client for Android with support for private messages, zaps, live streams, and more.',
+    description: 'The #1 privacy-focused Nostr client for Android. Built-in TOR support, complete NIP-65 relay control, encrypted messaging, zaps, live streams, and more.',
     ogTitle: 'Amethyst - Nostr Client for Android',
-    ogDescription: 'Join the social network you control. The most feature-rich Nostr client for Android.',
+    ogDescription: 'The #1 privacy-focused Nostr client. Built-in TOR, complete relay control, and 100+ NIPs supported.',
     ogImage: 'https://amethyst-social.shakespeare.wtf/amethyst-hero.webp',
     twitterCard: 'summary_large_image',
   });
@@ -25,6 +26,7 @@ const Index = () => {
       <main>
         <HeroSection />
         <AboutSection />
+        <TopFeaturesSection />
         <FeaturesSection />
         <ScreenshotsSection />
         <UpdatesSection />

@@ -1,7 +1,12 @@
-import { Users, Lock, Globe, Code, Heart, Sparkles } from 'lucide-react';
+import { Users, Lock, Globe, Code, Heart, Shield } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const aboutPoints = [
+  {
+    icon: Shield,
+    title: 'Privacy by Design',
+    description: 'Native TOR integration hides your IP address. End-to-end encrypted DMs. Your digital footprint stays invisible.',
+  },
   {
     icon: Globe,
     title: 'Decentralized',
@@ -9,13 +14,13 @@ const aboutPoints = [
   },
   {
     icon: Lock,
-    title: 'Privacy First',
-    description: 'End-to-end encrypted private messages. Your conversations stay between you and the people you choose.',
+    title: 'Total Relay Control',
+    description: 'Configure every relay type: inbox, outbox, DM, search, indexer, and broadcaster. No other client offers this level of control.',
   },
   {
     icon: Users,
     title: 'Censorship Resistant',
-    description: 'No central authority can silence you. Your voice, your content, your network.',
+    description: 'No central authority can silence you. Your voice, your content, your network—accessible even through TOR.',
   },
   {
     icon: Code,
@@ -26,11 +31,6 @@ const aboutPoints = [
     icon: Heart,
     title: 'User Owned',
     description: 'Your identity belongs to you. Take your followers, content, and reputation anywhere.',
-  },
-  {
-    icon: Sparkles,
-    title: 'Feature Rich',
-    description: 'From zaps to live streams, badges to communities - experience social media the way it should be.',
   },
 ];
 

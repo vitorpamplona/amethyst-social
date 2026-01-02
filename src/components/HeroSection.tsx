@@ -1,4 +1,4 @@
-import { ArrowDown, Play, Smartphone, Shield, Zap } from 'lucide-react';
+import { ArrowDown, Play, Shield, Zap, Radio } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export function HeroSection() {
@@ -42,7 +42,7 @@ export function HeroSection() {
 
             {/* Description */}
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Amethyst is the most feature-rich Nostr client for Android. Experience decentralized social networking with private messages, zaps, live streams, and complete data ownership.
+              The #1 privacy-focused Nostr client for Android. Built-in TOR support, the most configurable relay system, encrypted messaging, zaps, and complete data sovereignty.
             </p>
 
             {/* CTA Buttons */}
@@ -65,24 +65,24 @@ export function HeroSection() {
             <div className="grid grid-cols-3 gap-8 pt-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
               <div className="text-center lg:text-left">
                 <div className="flex items-center justify-center lg:justify-start gap-2">
-                  <Smartphone className="w-5 h-5 text-primary" />
-                  <span className="text-2xl md:text-3xl font-bold text-foreground">100+</span>
+                  <Shield className="w-5 h-5 text-primary" />
+                  <span className="text-2xl md:text-3xl font-bold text-foreground">TOR</span>
                 </div>
-                <p className="text-sm text-muted-foreground mt-1">NIPs Supported</p>
+                <p className="text-sm text-muted-foreground mt-1">Built-in Privacy</p>
               </div>
               <div className="text-center lg:text-left">
                 <div className="flex items-center justify-center lg:justify-start gap-2">
-                  <Shield className="w-5 h-5 text-primary" />
-                  <span className="text-2xl md:text-3xl font-bold text-foreground">100%</span>
+                  <Radio className="w-5 h-5 text-primary" />
+                  <span className="text-2xl md:text-3xl font-bold text-foreground">NIP-65</span>
                 </div>
-                <p className="text-sm text-muted-foreground mt-1">Open Source</p>
+                <p className="text-sm text-muted-foreground mt-1">Full Relay Control</p>
               </div>
               <div className="text-center lg:text-left">
                 <div className="flex items-center justify-center lg:justify-start gap-2">
                   <Zap className="w-5 h-5 text-primary" />
-                  <span className="text-2xl md:text-3xl font-bold text-foreground">⚡</span>
+                  <span className="text-2xl md:text-3xl font-bold text-foreground">100+</span>
                 </div>
-                <p className="text-sm text-muted-foreground mt-1">Zap Support</p>
+                <p className="text-sm text-muted-foreground mt-1">NIPs Supported</p>
               </div>
             </div>
           </div>
