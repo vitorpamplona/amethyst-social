@@ -32,8 +32,8 @@ export function Header() {
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled
-          ? 'bg-background/90 backdrop-blur-xl border-b border-purple-500/10 shadow-lg shadow-purple-900/10'
+        isScrolled || isMobileMenuOpen
+          ? 'bg-background/95 backdrop-blur-xl border-b border-purple-500/10 shadow-lg shadow-purple-900/10'
           : 'bg-transparent'
       )}
     >
@@ -117,7 +117,7 @@ export function Header() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border animate-fade-in">
+          <div className="md:hidden py-4 border-t border-purple-500/20 bg-background/95 backdrop-blur-xl animate-fade-in">
             <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <a
