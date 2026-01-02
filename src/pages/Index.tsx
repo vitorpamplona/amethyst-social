@@ -14,7 +14,7 @@ const Index = () => {
     description: 'Join the social network you control. Amethyst is a beautiful, feature-rich Nostr client for Android with support for private messages, zaps, live streams, and more.',
     ogTitle: 'Amethyst - Nostr Client for Android',
     ogDescription: 'Join the social network you control. The most feature-rich Nostr client for Android.',
-    ogImage: '/amethyst-hero.webp',
+    ogImage: 'https://amethyst-social.shakespeare.wtf/amethyst-hero.webp',
     twitterCard: 'summary_large_image',
   });
 
