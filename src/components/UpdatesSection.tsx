@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { useAmethystUpdates, useAmethystProfile, AMETHYST_NPUB } from '@/hooks/useAmethystUpdates';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { NoteContent } from '@/components/NoteContent';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { ExternalLink, RefreshCw } from 'lucide-react';
 import type { NostrEvent } from '@nostrify/nostrify';
 
@@ -22,14 +25,17 @@ function formatRelativeTime(timestamp: number): string {
   });
 }
 
-function UpdateCard({ event, profile }: { event: NostrEvent; profile: { name?: string; picture?: string; display_name?: string } | null }) {
+function UpdateCard({ event, profile, onClick }: { event: NostrEvent; profile: { name?: string; picture?: string; display_name?: string } | null; onClick: () => void }) {
   const displayName = profile?.display_name || profile?.name || 'Amethyst';
   const avatar = profile?.picture;
 
   const nostrLink = `https://njump.me/${event.id}`;
 
   return (
-    <Card className="group border-purple-500/10 bg-purple-950/40 backdrop-blur-sm hover:border-purple-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10">
+    <Card
+      className="group border-purple-500/10 bg-purple-950/40 backdrop-blur-sm hover:border-purple-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 cursor-pointer"
+      onClick={onClick}
+    >
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -50,6 +56,7 @@ function UpdateCard({ event, profile }: { event: NostrEvent; profile: { name?: s
             target="_blank"
             rel="noopener noreferrer"
             className="opacity-0 group-hover:opacity-100 transition-opacity"
+            onClick={(e) => e.stopPropagation()}
           >
             <Button variant="ghost" size="icon" className="h-8 w-8">
               <ExternalLink className="w-4 h-4" />
@@ -66,6 +73,61 @@ function UpdateCard({ event, profile }: { event: NostrEvent; profile: { name?: s
         </div>
       </CardContent>
     </Card>
+  );
+}
+
+function NoteModal({ event, profile, open, onOpenChange }: {
+  event: NostrEvent | null;
+  profile: { name?: string; picture?: string; display_name?: string } | null;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
+  if (!event) return null;
+
+  const displayName = profile?.display_name || profile?.name || 'Amethyst';
+  const avatar = profile?.picture;
+  const nostrLink = `https://njump.me/${event.id}`;
+
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="max-w-2xl bg-purple-950/95 border-purple-500/20 backdrop-blur-xl">
+        <DialogHeader>
+          <DialogTitle className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <Avatar className="w-10 h-10 ring-2 ring-purple-500/30">
+                <AvatarImage src={avatar} alt={displayName} />
+                <AvatarFallback className="bg-amethyst-gradient text-white font-bold">
+                  A
+                </AvatarFallback>
+              </Avatar>
+              <div>
+                <p className="font-semibold text-foreground">{displayName}</p>
+                <p className="text-xs text-muted-foreground">{formatRelativeTime(event.created_at)}</p>
+              </div>
+            </div>
+          </DialogTitle>
+        </DialogHeader>
+
+        <ScrollArea className="max-h-[60vh]">
+          <div className="text-sm text-foreground leading-relaxed whitespace-pre-wrap break-words pr-4">
+            <NoteContent event={event} />
+          </div>
+        </ScrollArea>
+
+        <div className="flex justify-end pt-4 border-t border-purple-500/20">
+          <a
+            href={nostrLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="outline" className="gap-2">
+              <ExternalLink className="w-4 h-4" />
+              View on Nostr
+            </Button>
+          </a>
+        </div>
+      </DialogContent>
+    </Dialog>
   );
 }
 
@@ -95,6 +157,13 @@ function UpdateSkeleton() {
 export function UpdatesSection() {
   const { data: updates, isLoading, error, refetch, isFetching } = useAmethystUpdates(6);
   const { data: profile } = useAmethystProfile();
+  const [selectedEvent, setSelectedEvent] = useState<NostrEvent | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleCardClick = (event: NostrEvent) => {
+    setSelectedEvent(event);
+    setModalOpen(true);
+  };
 
   return (
     <section id="updates" className="py-24 md:py-32 relative overflow-hidden">
@@ -170,7 +239,12 @@ export function UpdatesSection() {
             </div>
           ) : updates && updates.length > 0 ? (
             updates.map((event) => (
-              <UpdateCard key={event.id} event={event} profile={profile} />
+              <UpdateCard
+                key={event.id}
+                event={event}
+                profile={profile}
+                onClick={() => handleCardClick(event)}
+              />
             ))
           ) : (
             <div className="col-span-full">
@@ -201,6 +275,14 @@ export function UpdatesSection() {
           </div>
         )}
       </div>
+
+      {/* Note Modal */}
+      <NoteModal
+        event={selectedEvent}
+        profile={profile}
+        open={modalOpen}
+        onOpenChange={setModalOpen}
+      />
     </section>
   );
 }
