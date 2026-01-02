@@ -1,23 +1,35 @@
 import { useSeoMeta } from '@unhead/react';
-
-// FIXME: Update this page (the content is just a fallback if you fail to update the page)
+import { Header } from '@/components/Header';
+import { HeroSection } from '@/components/HeroSection';
+import { AboutSection } from '@/components/AboutSection';
+import { FeaturesSection } from '@/components/FeaturesSection';
+import { UpdatesSection } from '@/components/UpdatesSection';
+import { DownloadSection } from '@/components/DownloadSection';
+import { ObtainiumGuide } from '@/components/ObtainiumGuide';
+import { Footer } from '@/components/Footer';
 
 const Index = () => {
   useSeoMeta({
-    title: 'Welcome to Your Blank App',
-    description: 'A modern Nostr client application built with React, TailwindCSS, and Nostrify.',
+    title: 'Amethyst - Nostr Client for Android',
+    description: 'Join the social network you control. Amethyst is a beautiful, feature-rich Nostr client for Android with support for private messages, zaps, live streams, and more.',
+    ogTitle: 'Amethyst - Nostr Client for Android',
+    ogDescription: 'Join the social network you control. The most feature-rich Nostr client for Android.',
+    ogImage: '/amethyst-hero.webp',
+    twitterCard: 'summary_large_image',
   });
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-          Welcome to Your Blank App
-        </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-400">
-          Start building your amazing project here!
-        </p>
-      </div>
+    <div className="min-h-screen bg-hero-gradient">
+      <Header />
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <FeaturesSection />
+        <UpdatesSection />
+        <DownloadSection />
+        <ObtainiumGuide />
+      </main>
+      <Footer />
     </div>
   );
 };

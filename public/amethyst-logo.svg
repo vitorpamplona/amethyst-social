@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="amethystGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9333ea;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c084fc;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="amethystHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#c084fc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Crystal Shape -->
+  <polygon 
+    points="50,5 85,35 75,95 25,95 15,35" 
+    fill="url(#amethystGradient)"
+  />
+  
+  <!-- Crystal Facets -->
+  <polygon 
+    points="50,5 50,50 15,35" 
+    fill="url(#amethystHighlight)" 
+    opacity="0.6"
+  />
+  <polygon 
+    points="50,50 50,95 25,95 15,35" 
+    fill="#7c3aed" 
+    opacity="0.4"
+  />
+  <polygon 
+    points="50,5 85,35 50,50" 
+    fill="#d8b4fe" 
+    opacity="0.3"
+  />
+  <polygon 
+    points="50,50 85,35 75,95 50,95" 
+    fill="#9333ea" 
+    opacity="0.5"
+  />
+  
+  <!-- Crystal Highlight Lines -->
+  <line x1="50" y1="5" x2="50" y2="95" stroke="white" stroke-width="1" opacity="0.3"/>
+  <line x1="15" y1="35" x2="85" y2="35" stroke="white" stroke-width="0.5" opacity="0.2"/>
+</svg>

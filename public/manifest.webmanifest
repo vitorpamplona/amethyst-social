@@ -1,0 +1,17 @@
+{
+  "name": "Amethyst - Nostr Client for Android",
+  "short_name": "Amethyst",
+  "description": "Join the social network you control. The most feature-rich Nostr client for Android.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf5ff",
+  "theme_color": "#9333ea",
+  "icons": [
+    {
+      "src": "/amethyst-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
