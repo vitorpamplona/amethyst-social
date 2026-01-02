@@ -5,24 +5,24 @@ import { Badge } from '@/components/ui/badge';
 
 const downloadOptions = [
   {
-    name: 'Google Play',
-    description: 'The official Google Play Store. Automatic updates and easy installation.',
-    icon: Play,
-    href: 'https://play.google.com/store/apps/details?id=com.vitorpamplona.amethyst',
-    badge: 'Recommended',
-    badgeVariant: 'default' as const,
-    buttonText: 'Get on Play Store',
-    features: ['Automatic updates', 'Easy installation', 'Play Protect verified'],
-  },
-  {
     name: 'Zapstore',
     description: 'Decentralized app store built on Nostr. Download apps without gatekeepers.',
     icon: Zap,
     href: 'https://zapstore.dev/',
-    badge: 'Decentralized',
-    badgeVariant: 'secondary' as const,
+    badge: 'Recommended',
+    badgeVariant: 'default' as const,
     buttonText: 'Get on Zapstore',
     features: ['Nostr-native', 'No gatekeepers', 'Community verified'],
+  },
+  {
+    name: 'Google Play',
+    description: 'The official Google Play Store. Automatic updates and easy installation.',
+    icon: Play,
+    href: 'https://play.google.com/store/apps/details?id=com.vitorpamplona.amethyst',
+    badge: 'Official',
+    badgeVariant: 'secondary' as const,
+    buttonText: 'Get on Play Store',
+    features: ['Automatic updates', 'Easy installation', 'Play Protect verified'],
   },
   {
     name: 'GitHub Releases',
