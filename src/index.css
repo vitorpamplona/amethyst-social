@@ -48,45 +48,6 @@
     --sidebar-ring: 259 65% 65%;
   }
 
-  /* Light mode override (optional) */
-  .light {
-    --background: 250 30% 99%;
-    --foreground: 250 50% 10%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 250 50% 10%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 250 50% 10%;
-
-    --primary: 259 60% 55%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 250 30% 94%;
-    --secondary-foreground: 250 50% 20%;
-
-    --muted: 250 20% 95%;
-    --muted-foreground: 250 15% 45%;
-
-    --accent: 200 70% 50%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 250 20% 90%;
-    --input: 250 20% 90%;
-    --ring: 259 60% 55%;
-
-    --sidebar-background: 250 30% 98%;
-    --sidebar-foreground: 250 30% 26%;
-    --sidebar-primary: 259 60% 55%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 250 30% 94%;
-    --sidebar-accent-foreground: 250 50% 20%;
-    --sidebar-border: 250 20% 91%;
-    --sidebar-ring: 259 60% 55%;
-  }
 }
 
 @layer base {
@@ -109,9 +70,7 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-indigo-400 to-cyan-400;
   }
 
-  .light .text-gradient {
-    @apply bg-gradient-to-r from-purple-600 via-indigo-500 to-cyan-500;
-  }
+
 
   .bg-amethyst-gradient {
     background: linear-gradient(135deg, #7c5db5 0%, #5b6ba8 50%, #4a90a4 100%);
@@ -121,9 +80,7 @@
     box-shadow: 0 0 40px rgba(124, 93, 181, 0.4), 0 0 80px rgba(74, 144, 164, 0.2);
   }
 
-  .light .glow-amethyst {
-    box-shadow: 0 0 40px rgba(124, 93, 181, 0.3), 0 0 80px rgba(74, 144, 164, 0.1);
-  }
+
 }
 
 /* Smooth scrolling */
@@ -197,20 +154,14 @@ html {
 }
 
 .bg-hero-gradient {
-  background: linear-gradient(135deg, 
-    hsl(250, 45%, 8%) 0%, 
-    hsl(255, 50%, 12%) 40%, 
+  background: linear-gradient(135deg,
+    hsl(250, 45%, 8%) 0%,
+    hsl(255, 50%, 12%) 40%,
     hsl(240, 40%, 10%) 100%
   );
 }
 
-.light .bg-hero-gradient {
-  background: linear-gradient(135deg, 
-    hsl(250, 30%, 98%) 0%, 
-    hsl(255, 40%, 95%) 50%, 
-    hsl(200, 30%, 94%) 100%
-  );
-}
+
 
 /* Glass morphism effects for dark theme */
 .glass {

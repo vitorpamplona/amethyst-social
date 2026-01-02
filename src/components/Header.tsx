@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Moon, Sun, Github } from 'lucide-react';
+import { Menu, X, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useTheme } from '@/hooks/useTheme';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
@@ -14,7 +13,6 @@ const navLinks = [
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,10 +21,6 @@ export function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
 
   return (
     <header
@@ -69,19 +63,6 @@ export function Header() {
 
           {/* Actions */}
           <div className="flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              className="hidden md:flex"
-            >
-              {theme === 'dark' ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
-            </Button>
-
             <a
               href="https://github.com/vitorpamplona/amethyst"
               target="_blank"
@@ -130,31 +111,15 @@ export function Header() {
                 </a>
               ))}
               <div className="flex items-center gap-2 px-4 py-3">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={toggleTheme}
-                  className="flex-1"
-                >
-                  {theme === 'dark' ? (
-                    <>
-                      <Sun className="h-4 w-4 mr-2" />
-                      Light Mode
-                    </>
-                  ) : (
-                    <>
-                      <Moon className="h-4 w-4 mr-2" />
-                      Dark Mode
-                    </>
-                  )}
-                </Button>
                 <a
                   href="https://github.com/vitorpamplona/amethyst"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="flex-1"
                 >
-                  <Button variant="outline" size="icon">
+                  <Button variant="outline" className="w-full gap-2">
                     <Github className="h-4 w-4" />
+                    View on GitHub
                   </Button>
                 </a>
               </div>
