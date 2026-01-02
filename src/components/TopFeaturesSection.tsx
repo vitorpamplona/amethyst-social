@@ -28,9 +28,9 @@ const topFeatures = [
     description: 'Take full control of your Nostr experience with granular relay configuration. Amethyst supports every relay type defined in NIP-65 and beyond, giving you unmatched flexibility.',
     highlights: [
       { icon: ArrowRightLeft, text: 'Inbox & Outbox relays (NIP-65)' },
-      { icon: Server, text: 'DM relays for private messaging' },
-      { icon: Wifi, text: 'Search & Indexer relays' },
-      { icon: Network, text: 'Broadcaster relays for maximum reach' },
+      { icon: Server, text: 'DM, Private & Proxy relays' },
+      { icon: Wifi, text: 'Search, Indexer & Broadcast relays' },
+      { icon: Network, text: 'Local, Trusted & Blocked lists' },
     ],
     gradient: 'from-cyan-600 to-teal-600',
     glowColor: 'cyan',
@@ -40,12 +40,15 @@ const topFeatures = [
 const relayTypes = [
   { name: 'Inbox', description: 'Receive mentions and replies', color: 'bg-purple-500/20 text-purple-300 border-purple-500/30' },
   { name: 'Outbox', description: 'Publish your notes', color: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30' },
-  { name: 'DM', description: 'Private encrypted messages', color: 'bg-pink-500/20 text-pink-300 border-pink-500/30' },
-  { name: 'Search', description: 'Full-text search (NIP-50)', color: 'bg-amber-500/20 text-amber-300 border-amber-500/30' },
+  { name: 'DM', description: 'Direct message relays', color: 'bg-pink-500/20 text-pink-300 border-pink-500/30' },
+  { name: 'Private', description: 'Private inbox relays', color: 'bg-rose-500/20 text-rose-300 border-rose-500/30' },
+  { name: 'Proxy', description: 'Route through proxy relays', color: 'bg-slate-500/20 text-slate-300 border-slate-500/30' },
+  { name: 'Broadcast', description: 'Wide event distribution', color: 'bg-blue-500/20 text-blue-300 border-blue-500/30' },
   { name: 'Indexer', description: 'Profile & event lookup', color: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' },
-  { name: 'Broadcaster', description: 'Wide event distribution', color: 'bg-blue-500/20 text-blue-300 border-blue-500/30' },
+  { name: 'Search', description: 'Full-text search (NIP-50)', color: 'bg-amber-500/20 text-amber-300 border-amber-500/30' },
   { name: 'Local', description: 'Community-specific relays', color: 'bg-orange-500/20 text-orange-300 border-orange-500/30' },
-  { name: 'Paid', description: 'Premium relay access', color: 'bg-violet-500/20 text-violet-300 border-violet-500/30' },
+  { name: 'Trusted', description: 'Trusted relay sources', color: 'bg-green-500/20 text-green-300 border-green-500/30' },
+  { name: 'Blocked', description: 'Blocked relay list', color: 'bg-red-500/20 text-red-300 border-red-500/30' },
 ];
 
 export function TopFeaturesSection() {
@@ -273,7 +276,7 @@ function RelayVisual() {
             />
             <RelayRow
               name="relay.snort.social"
-              types={['DM']}
+              types={['DM', 'Private']}
               status="connected"
             />
             <RelayRow
@@ -283,19 +286,19 @@ function RelayVisual() {
             />
             <RelayRow
               name="nostr.wine"
-              types={['Broadcaster']}
+              types={['Broadcast', 'Trusted']}
               status="connected"
             />
             <RelayRow
               name="umbrel.local:4848"
-              types={['Local']}
+              types={['Local', 'Proxy']}
               status="connecting"
             />
           </div>
 
           {/* Stats */}
           <div className="flex items-center justify-between pt-4 border-t border-cyan-500/20 text-sm">
-            <span className="text-muted-foreground">5 relays configured</span>
+            <span className="text-muted-foreground">11 relay types supported</span>
             <span className="text-green-400 flex items-center gap-1">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
               4 connected
@@ -318,10 +321,14 @@ function RelayRow({ name, types, status }: { name: string; types: string[]; stat
     'Inbox': 'bg-purple-500/20 text-purple-300',
     'Outbox': 'bg-cyan-500/20 text-cyan-300',
     'DM': 'bg-pink-500/20 text-pink-300',
+    'Private': 'bg-rose-500/20 text-rose-300',
+    'Proxy': 'bg-slate-500/20 text-slate-300',
+    'Broadcast': 'bg-blue-500/20 text-blue-300',
     'Search': 'bg-amber-500/20 text-amber-300',
     'Indexer': 'bg-emerald-500/20 text-emerald-300',
-    'Broadcaster': 'bg-blue-500/20 text-blue-300',
     'Local': 'bg-orange-500/20 text-orange-300',
+    'Trusted': 'bg-green-500/20 text-green-300',
+    'Blocked': 'bg-red-500/20 text-red-300',
   };
 
   return (

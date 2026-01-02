@@ -1,4 +1,4 @@
-import { ArrowDown, Play, Shield, Zap, Radio } from 'lucide-react';
+import { ArrowDown, Play, Shield, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export function HeroSection() {
@@ -72,10 +72,10 @@ export function HeroSection() {
               </div>
               <div className="text-center lg:text-left">
                 <div className="flex items-center justify-center lg:justify-start gap-2">
-                  <Radio className="w-5 h-5 text-primary" />
-                  <span className="text-2xl md:text-3xl font-bold text-foreground">8+</span>
+                  <Zap className="w-5 h-5 text-primary" />
+                  <span className="text-2xl md:text-3xl font-bold text-foreground">⚡</span>
                 </div>
-                <p className="text-sm text-muted-foreground mt-1">Relay Types</p>
+                <p className="text-sm text-muted-foreground mt-1">Zap Support</p>
               </div>
               <div className="text-center lg:text-left">
                 <div className="flex items-center justify-center lg:justify-start gap-2">
