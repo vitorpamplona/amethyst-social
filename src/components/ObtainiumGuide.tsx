@@ -43,19 +43,19 @@ export function ObtainiumGuide() {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-purple-200 dark:border-purple-800 mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-purple-200/50 dark:border-purple-700/50 mb-6">
             <Download className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-primary">Installation Guide</span>
           </div>
-          
+
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6">
             <span className="text-foreground">Install via</span>
             <br />
             <span className="text-gradient">Obtainium</span>
           </h2>
-          
+
           <p className="text-lg md:text-xl text-muted-foreground">
-            Obtainium is an open-source app that helps you install and update apps directly from 
+            Obtainium is an open-source app that helps you install and update apps directly from
             their official release pages. Perfect for staying up-to-date without app store delays.
           </p>
         </div>
@@ -95,7 +95,7 @@ export function ObtainiumGuide() {
           <h3 className="text-2xl font-serif font-semibold text-center mb-10">
             Step-by-Step Guide
           </h3>
-          
+
           <div className="grid md:grid-cols-2 gap-6">
             {steps.map((step, index) => (
               <Card
@@ -104,14 +104,14 @@ export function ObtainiumGuide() {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
+
                 <CardContent className="p-6 relative z-10">
                   <div className="flex items-start gap-4">
                     {/* Step Number */}
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-violet-500 flex items-center justify-center shrink-0 text-white font-bold text-lg shadow-lg shadow-purple-500/20">
+                    <div className="w-12 h-12 rounded-full bg-amethyst-gradient flex items-center justify-center shrink-0 text-white font-bold text-lg shadow-lg shadow-purple-500/20">
                       {step.number}
                     </div>
-                    
+
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
                         <step.icon className="w-5 h-5 text-primary" />
@@ -119,17 +119,17 @@ export function ObtainiumGuide() {
                           {step.title}
                         </h4>
                       </div>
-                      
+
                       <p className="text-muted-foreground mb-4">
                         {step.description}
                       </p>
-                      
+
                       {step.code && (
                         <code className="block w-full p-3 bg-muted rounded-lg text-sm font-mono text-foreground overflow-x-auto">
                           {step.code}
                         </code>
                       )}
-                      
+
                       {step.action && (
                         <a
                           href={step.action.href}
@@ -155,7 +155,7 @@ export function ObtainiumGuide() {
           <h3 className="text-xl font-serif font-semibold mb-4">
             Why Use Obtainium?
           </h3>
-          
+
           <div className="grid sm:grid-cols-3 gap-4">
             <div className="p-4 rounded-xl bg-secondary/50 border border-border/50">
               <CheckCircle className="w-6 h-6 text-primary mx-auto mb-2" />
@@ -164,7 +164,7 @@ export function ObtainiumGuide() {
                 Get updates immediately when released
               </p>
             </div>
-            
+
             <div className="p-4 rounded-xl bg-secondary/50 border border-border/50">
               <CheckCircle className="w-6 h-6 text-primary mx-auto mb-2" />
               <h4 className="font-semibold mb-1">Privacy First</h4>
@@ -172,7 +172,7 @@ export function ObtainiumGuide() {
                 No app store tracking or accounts
               </p>
             </div>
-            
+
             <div className="p-4 rounded-xl bg-secondary/50 border border-border/50">
               <CheckCircle className="w-6 h-6 text-primary mx-auto mb-2" />
               <h4 className="font-semibold mb-1">Open Source</h4>

@@ -6,13 +6,13 @@ export function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Gradient Orbs */}
+        {/* Gradient Orbs - Purple to Teal matching logo */}
         <div className="absolute top-1/4 -left-32 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-400/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-400/10 rounded-full blur-3xl" />
 
         {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(147,51,234,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(147,51,234,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(124,93,181,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(124,93,181,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -20,10 +20,10 @@ export function HeroSection() {
           {/* Left Column - Text Content */}
           <div className="text-center lg:text-left space-y-8">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-purple-200 dark:border-purple-800 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-purple-200/50 dark:border-purple-700/50 animate-fade-in">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-amethyst-gradient"></span>
               </span>
               <span className="text-sm font-medium text-muted-foreground">
                 Open Source Nostr Client
@@ -44,13 +44,13 @@ export function HeroSection() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in" style={{ animationDelay: '0.3s' }}>
               <a href="#download">
-                <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg glow-purple">
+                <Button size="lg" className="w-full sm:w-auto bg-amethyst-gradient hover:opacity-90 text-white font-semibold px-8 py-6 text-lg glow-amethyst">
                   <Play className="w-5 h-5 mr-2 fill-current" />
                   Get Amethyst
                 </Button>
               </a>
               <a href="#features">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 py-6 text-lg border-2">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 py-6 text-lg border-2 hover:border-primary">
                   Explore Features
                   <ArrowDown className="w-5 h-5 ml-2" />
                 </Button>
@@ -87,7 +87,7 @@ export function HeroSection() {
           <div className="relative flex justify-center lg:justify-end animate-scale-in" style={{ animationDelay: '0.2s' }}>
             <div className="relative">
               {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-violet-500/30 blur-3xl rounded-3xl scale-90" />
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-cyan-500/30 blur-3xl rounded-3xl scale-90" />
 
               {/* Main Image */}
               <img
@@ -99,7 +99,7 @@ export function HeroSection() {
               {/* Floating Elements */}
               <div className="absolute -top-4 -left-4 p-4 bg-card rounded-2xl shadow-xl border border-border animate-float">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-violet-500 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-amethyst-gradient flex items-center justify-center">
                     <Zap className="w-5 h-5 text-white" />
                   </div>
                   <div>
@@ -111,7 +111,7 @@ export function HeroSection() {
 
               <div className="absolute -bottom-4 -right-4 p-4 bg-card rounded-2xl shadow-xl border border-border animate-float" style={{ animationDelay: '1s' }}>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-violet-500 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-amethyst-gradient flex items-center justify-center">
                     <Shield className="w-5 h-5 text-white" />
                   </div>
                   <div>

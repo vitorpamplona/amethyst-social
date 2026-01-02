@@ -43,11 +43,11 @@ export function Header() {
           <a href="#" className="flex items-center gap-3 group">
             <div className="relative">
               <img
-                src="/amethyst-logo.svg"
+                src="/amethyst-logo.jpg"
                 alt="Amethyst"
-                className="w-10 h-10 md:w-12 md:h-12 transition-transform group-hover:scale-110"
+                className="w-10 h-10 md:w-12 md:h-12 rounded-xl transition-transform group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-purple-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <span className="font-serif text-xl md:text-2xl font-bold text-gradient">
               Amethyst
@@ -81,7 +81,7 @@ export function Header() {
                 <Moon className="h-5 w-5" />
               )}
             </Button>
-            
+
             <a
               href="https://github.com/vitorpamplona/amethyst"
               target="_blank"
@@ -94,7 +94,7 @@ export function Header() {
             </a>
 
             <a href="#download" className="hidden md:block">
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6">
+              <Button className="bg-amethyst-gradient hover:opacity-90 text-white font-semibold px-6">
                 Download
               </Button>
             </a>
@@ -159,7 +159,7 @@ export function Header() {
                 </a>
               </div>
               <a href="#download" className="px-4">
-                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+                <Button className="w-full bg-amethyst-gradient hover:opacity-90 text-white font-semibold">
                   Download Now
                 </Button>
               </a>

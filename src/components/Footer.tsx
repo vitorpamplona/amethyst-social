@@ -30,19 +30,19 @@ export function Footer() {
           <div className="lg:col-span-1">
             <a href="#" className="flex items-center gap-3 mb-4 group">
               <img
-                src="/amethyst-logo.svg"
+                src="/amethyst-logo.jpg"
                 alt="Amethyst"
-                className="w-10 h-10 transition-transform group-hover:scale-110"
+                className="w-10 h-10 rounded-xl transition-transform group-hover:scale-110"
               />
               <span className="font-serif text-xl font-bold text-gradient">
                 Amethyst
               </span>
             </a>
-            
+
             <p className="text-muted-foreground mb-6">
               The social network you control. A beautiful, feature-rich Nostr client for Android.
             </p>
-            
+
             <div className="flex items-center gap-3">
               <a
                 href="https://github.com/vitorpamplona/amethyst"
@@ -130,7 +130,7 @@ export function Footer() {
             <p>
               © {new Date().getFullYear()} Amethyst. Open source under MIT License.
             </p>
-            
+
             <div className="flex items-center gap-1">
               <span>Vibed with</span>
               <Heart className="w-4 h-4 text-red-500 fill-current" />

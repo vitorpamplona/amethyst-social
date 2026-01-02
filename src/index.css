@@ -4,91 +4,91 @@
 
 @layer base {
   :root {
-    /* Amethyst Purple Theme - Light Mode */
-    --background: 270 30% 99%;
-    --foreground: 270 50% 10%;
+    /* Amethyst Purple-Blue Gradient Theme - Light Mode */
+    --background: 250 30% 99%;
+    --foreground: 250 50% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 270 50% 10%;
+    --card-foreground: 250 50% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 270 50% 10%;
+    --popover-foreground: 250 50% 10%;
 
-    /* Primary: Deep Amethyst Purple */
-    --primary: 270 60% 50%;
+    /* Primary: Amethyst Purple */
+    --primary: 259 60% 55%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary: Soft Lavender */
-    --secondary: 270 30% 94%;
-    --secondary-foreground: 270 50% 20%;
+    --secondary: 250 30% 94%;
+    --secondary-foreground: 250 50% 20%;
 
-    --muted: 270 20% 95%;
-    --muted-foreground: 270 15% 45%;
+    --muted: 250 20% 95%;
+    --muted-foreground: 250 15% 45%;
 
-    /* Accent: Vibrant Purple */
-    --accent: 280 75% 60%;
+    /* Accent: Teal Blue (from gradient) */
+    --accent: 200 70% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 270 20% 90%;
-    --input: 270 20% 90%;
-    --ring: 270 60% 50%;
+    --border: 250 20% 90%;
+    --input: 250 20% 90%;
+    --ring: 259 60% 55%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 270 30% 98%;
-    --sidebar-foreground: 270 30% 26%;
-    --sidebar-primary: 270 60% 50%;
+    --sidebar-background: 250 30% 98%;
+    --sidebar-foreground: 250 30% 26%;
+    --sidebar-primary: 259 60% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 270 30% 94%;
-    --sidebar-accent-foreground: 270 50% 20%;
-    --sidebar-border: 270 20% 91%;
-    --sidebar-ring: 270 60% 50%;
+    --sidebar-accent: 250 30% 94%;
+    --sidebar-accent-foreground: 250 50% 20%;
+    --sidebar-border: 250 20% 91%;
+    --sidebar-ring: 259 60% 55%;
   }
 
   .dark {
-    /* Amethyst Purple Theme - Dark Mode */
-    --background: 270 30% 6%;
-    --foreground: 270 10% 95%;
+    /* Amethyst Purple-Blue Gradient Theme - Dark Mode */
+    --background: 250 40% 6%;
+    --foreground: 250 10% 95%;
 
-    --card: 270 30% 8%;
-    --card-foreground: 270 10% 95%;
+    --card: 250 40% 8%;
+    --card-foreground: 250 10% 95%;
 
-    --popover: 270 30% 8%;
-    --popover-foreground: 270 10% 95%;
+    --popover: 250 40% 8%;
+    --popover-foreground: 250 10% 95%;
 
     /* Primary: Bright Amethyst */
-    --primary: 270 70% 65%;
-    --primary-foreground: 270 50% 10%;
+    --primary: 259 70% 65%;
+    --primary-foreground: 250 50% 10%;
 
     /* Secondary: Dark Lavender */
-    --secondary: 270 30% 15%;
-    --secondary-foreground: 270 10% 90%;
+    --secondary: 250 30% 15%;
+    --secondary-foreground: 250 10% 90%;
 
-    --muted: 270 25% 15%;
-    --muted-foreground: 270 15% 65%;
+    --muted: 250 25% 15%;
+    --muted-foreground: 250 15% 65%;
 
-    /* Accent: Glowing Purple */
-    --accent: 280 80% 70%;
-    --accent-foreground: 270 50% 10%;
+    /* Accent: Glowing Teal */
+    --accent: 200 80% 60%;
+    --accent-foreground: 250 50% 10%;
 
     --destructive: 0 62.8% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 270 25% 18%;
-    --input: 270 25% 18%;
-    --ring: 270 70% 65%;
+    --border: 250 25% 18%;
+    --input: 250 25% 18%;
+    --ring: 259 70% 65%;
 
-    --sidebar-background: 270 30% 8%;
-    --sidebar-foreground: 270 10% 90%;
-    --sidebar-primary: 270 70% 65%;
-    --sidebar-primary-foreground: 270 50% 10%;
-    --sidebar-accent: 270 30% 15%;
-    --sidebar-accent-foreground: 270 10% 90%;
-    --sidebar-border: 270 25% 18%;
-    --sidebar-ring: 270 70% 65%;
+    --sidebar-background: 250 40% 8%;
+    --sidebar-foreground: 250 10% 90%;
+    --sidebar-primary: 259 70% 65%;
+    --sidebar-primary-foreground: 250 50% 10%;
+    --sidebar-accent: 250 30% 15%;
+    --sidebar-accent-foreground: 250 10% 90%;
+    --sidebar-border: 250 25% 18%;
+    --sidebar-ring: 259 70% 65%;
   }
 }
 
@@ -109,19 +109,23 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-violet-500 to-purple-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-indigo-500 to-cyan-500;
   }
 
   .dark .text-gradient {
-    @apply bg-gradient-to-r from-purple-400 via-violet-300 to-purple-200;
+    @apply bg-gradient-to-r from-purple-400 via-indigo-400 to-cyan-400;
   }
 
-  .glow-purple {
-    box-shadow: 0 0 40px rgba(147, 51, 234, 0.3), 0 0 80px rgba(147, 51, 234, 0.1);
+  .bg-amethyst-gradient {
+    background: linear-gradient(135deg, #7c5db5 0%, #5b6ba8 50%, #4a90a4 100%);
   }
 
-  .dark .glow-purple {
-    box-shadow: 0 0 40px rgba(168, 85, 247, 0.4), 0 0 80px rgba(168, 85, 247, 0.2);
+  .glow-amethyst {
+    box-shadow: 0 0 40px rgba(124, 93, 181, 0.3), 0 0 80px rgba(74, 144, 164, 0.1);
+  }
+
+  .dark .glow-amethyst {
+    box-shadow: 0 0 40px rgba(139, 112, 191, 0.4), 0 0 80px rgba(96, 165, 191, 0.2);
   }
 }
 
@@ -160,10 +164,10 @@ html {
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+    box-shadow: 0 0 20px rgba(124, 93, 181, 0.3);
   }
   50% {
-    box-shadow: 0 0 40px rgba(147, 51, 234, 0.6);
+    box-shadow: 0 0 40px rgba(124, 93, 181, 0.6);
   }
 }
 
@@ -182,16 +186,16 @@ html {
 
 .bg-hero-gradient {
   background: linear-gradient(135deg, 
-    hsl(270, 60%, 98%) 0%, 
-    hsl(280, 50%, 95%) 50%, 
-    hsl(270, 40%, 92%) 100%
+    hsl(250, 30%, 98%) 0%, 
+    hsl(255, 40%, 95%) 50%, 
+    hsl(200, 30%, 94%) 100%
   );
 }
 
 .dark .bg-hero-gradient {
   background: linear-gradient(135deg, 
-    hsl(270, 40%, 8%) 0%, 
-    hsl(280, 50%, 12%) 50%, 
-    hsl(270, 30%, 6%) 100%
+    hsl(250, 40%, 8%) 0%, 
+    hsl(255, 45%, 12%) 50%, 
+    hsl(200, 35%, 10%) 100%
   );
 }

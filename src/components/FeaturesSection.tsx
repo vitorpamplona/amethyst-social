@@ -1,12 +1,12 @@
-import { 
-  MessageSquare, 
-  Zap, 
-  Radio, 
-  Users, 
-  Shield, 
-  Image, 
-  Bell, 
-  Languages, 
+import {
+  MessageSquare,
+  Zap,
+  Radio,
+  Users,
+  Shield,
+  Image,
+  Bell,
+  Languages,
   Key,
   FileText,
   Video,
@@ -85,23 +85,23 @@ export function FeaturesSection() {
       {/* Background Elements */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
       <div className="absolute -top-48 -right-48 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
-      <div className="absolute -bottom-48 -left-48 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl" />
+      <div className="absolute -bottom-48 -left-48 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-purple-200 dark:border-purple-800 mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-purple-200/50 dark:border-purple-700/50 mb-6">
             <span className="text-sm font-medium text-primary">Packed with Features</span>
           </div>
-          
+
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6">
             <span className="text-foreground">Everything You Need,</span>
             <br />
             <span className="text-gradient">Nothing You Don't</span>
           </h2>
-          
+
           <p className="text-lg md:text-xl text-muted-foreground">
-            From encrypted messaging to live streaming, Amethyst supports an extensive range of Nostr 
+            From encrypted messaging to live streaming, Amethyst supports an extensive range of Nostr
             Implementation Possibilities (NIPs) to give you the complete experience.
           </p>
         </div>
@@ -113,22 +113,22 @@ export function FeaturesSection() {
               <h3 className="text-xl md:text-2xl font-serif font-semibold mb-6 text-center md:text-left">
                 {category.title}
               </h3>
-              
+
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 {category.features.map((feature, featureIndex) => (
                   <Card
                     key={feature.name}
-                    className="group relative overflow-hidden border-border/50 bg-card/80 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/5"
+                    className="group relative overflow-hidden border-border/50 bg-card/80 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
                     style={{ animationDelay: `${(categoryIndex * 0.1) + (featureIndex * 0.05)}s` }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
                     <CardContent className="p-5 relative z-10">
                       <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500/10 to-violet-500/10 border border-purple-200 dark:border-purple-800 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500/10 to-cyan-500/10 border border-purple-200/50 dark:border-purple-700/50 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
                           <feature.icon className="w-5 h-5 text-primary" />
                         </div>
-                        
+
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 mb-1">
                             <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">
@@ -158,7 +158,7 @@ export function FeaturesSection() {
           <h3 className="text-lg font-semibold mb-6 text-muted-foreground">
             Extensive NIP Support
           </h3>
-          
+
           <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto">
             {highlightedNIPs.map((nip) => (
               <Badge

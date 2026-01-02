@@ -56,19 +56,19 @@ export function DownloadSection() {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-purple-200 dark:border-purple-800 mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-purple-200/50 dark:border-purple-700/50 mb-6">
             <Smartphone className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-primary">Download Now</span>
           </div>
-          
+
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6">
             <span className="text-foreground">Get Amethyst</span>
             <br />
             <span className="text-gradient">Your Way</span>
           </h2>
-          
+
           <p className="text-lg md:text-xl text-muted-foreground">
-            Choose how you want to install Amethyst. Whether you prefer the convenience of app stores 
+            Choose how you want to install Amethyst. Whether you prefer the convenience of app stores
             or the freedom of direct downloads, we've got you covered.
           </p>
         </div>
@@ -82,18 +82,18 @@ export function DownloadSection() {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Gradient hover effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
               <CardHeader className="relative z-10">
                 <div className="flex items-start justify-between mb-4">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/10 to-violet-500/10 border border-purple-200 dark:border-purple-800 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/10 to-cyan-500/10 border border-purple-200/50 dark:border-purple-700/50 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <option.icon className="w-7 h-7 text-primary" />
                   </div>
                   <Badge variant={option.badgeVariant} className={option.badgeVariant === 'default' ? 'bg-primary text-primary-foreground' : ''}>
                     {option.badge}
                   </Badge>
                 </div>
-                
+
                 <CardTitle className="text-xl font-serif group-hover:text-primary transition-colors">
                   {option.name}
                 </CardTitle>
@@ -101,7 +101,7 @@ export function DownloadSection() {
                   {option.description}
                 </CardDescription>
               </CardHeader>
-              
+
               <CardContent className="relative z-10 pt-0">
                 {/* Features */}
                 <ul className="space-y-2 mb-6">
@@ -112,7 +112,7 @@ export function DownloadSection() {
                     </li>
                   ))}
                 </ul>
-                
+
                 {/* Download Button */}
                 <a
                   href={option.href}

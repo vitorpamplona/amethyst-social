@@ -10,12 +10,12 @@ import type { NostrEvent } from '@nostrify/nostrify';
 function formatRelativeTime(timestamp: number): string {
   const now = Math.floor(Date.now() / 1000);
   const diff = now - timestamp;
-  
+
   if (diff < 60) return 'just now';
   if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
   if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
   if (diff < 604800) return `${Math.floor(diff / 86400)}d ago`;
-  
+
   return new Date(timestamp * 1000).toLocaleDateString('en-US', {
     month: 'short',
     day: 'numeric',
@@ -25,17 +25,17 @@ function formatRelativeTime(timestamp: number): string {
 function UpdateCard({ event, profile }: { event: NostrEvent; profile: { name?: string; picture?: string; display_name?: string } | null }) {
   const displayName = profile?.display_name || profile?.name || 'Amethyst';
   const avatar = profile?.picture;
-  
+
   const nostrLink = `https://njump.me/${event.id}`;
-  
+
   return (
     <Card className="group border-border/50 bg-card/80 backdrop-blur-sm hover:border-primary/30 transition-all duration-300">
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Avatar className="w-10 h-10 ring-2 ring-purple-500/20">
+            <Avatar className="w-10 h-10 ring-2 ring-purple-500/30">
               <AvatarImage src={avatar} alt={displayName} />
-              <AvatarFallback className="bg-gradient-to-br from-purple-500 to-violet-500 text-white font-bold">
+              <AvatarFallback className="bg-amethyst-gradient text-white font-bold">
                 A
               </AvatarFallback>
             </Avatar>
@@ -44,7 +44,7 @@ function UpdateCard({ event, profile }: { event: NostrEvent; profile: { name?: s
               <p className="text-xs text-muted-foreground">{formatRelativeTime(event.created_at)}</p>
             </div>
           </div>
-          
+
           <a
             href={nostrLink}
             target="_blank"
@@ -57,12 +57,12 @@ function UpdateCard({ event, profile }: { event: NostrEvent; profile: { name?: s
           </a>
         </div>
       </CardHeader>
-      
+
       <CardContent className="pt-0">
         <div className="text-sm text-foreground leading-relaxed whitespace-pre-wrap break-words">
           <NoteContent event={event} />
         </div>
-        
+
         {/* Engagement hints (visual only) */}
         <div className="flex items-center gap-6 mt-4 pt-4 border-t border-border/50">
           <div className="flex items-center gap-1.5 text-muted-foreground">
@@ -118,16 +118,16 @@ export function UpdatesSection() {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-purple-200 dark:border-purple-800 mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-purple-200/50 dark:border-purple-700/50 mb-6">
             <span className="text-sm font-medium text-primary">Latest Updates</span>
           </div>
-          
+
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6">
             <span className="text-foreground">Stay in the</span>
             <br />
             <span className="text-gradient">Loop</span>
           </h2>
-          
+
           <p className="text-lg md:text-xl text-muted-foreground mb-6">
             Get the latest news, updates, and announcements directly from the Amethyst team on Nostr.
           </p>
@@ -144,7 +144,7 @@ export function UpdatesSection() {
                 Follow @Amethyst
               </Button>
             </a>
-            
+
             <Button
               variant="ghost"
               size="icon"

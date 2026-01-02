@@ -44,18 +44,18 @@ export function AboutSection() {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-purple-200 dark:border-purple-800 mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-purple-200/50 dark:border-purple-700/50 mb-6">
             <span className="text-sm font-medium text-primary">About Amethyst</span>
           </div>
-          
+
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6">
             <span className="text-foreground">Social Media,</span>
             <br />
             <span className="text-gradient">Reimagined</span>
           </h2>
-          
+
           <p className="text-lg md:text-xl text-muted-foreground">
-            Amethyst brings the power of Nostr to your Android device. Experience a social network 
+            Amethyst brings the power of Nostr to your Android device. Experience a social network
             where you own your data, control your identity, and connect with others on your terms.
           </p>
         </div>
@@ -65,21 +65,21 @@ export function AboutSection() {
           {aboutPoints.map((point, index) => (
             <Card
               key={point.title}
-              className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/5"
+              className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Gradient hover effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
               <CardContent className="p-6 md:p-8 relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/10 to-violet-500/10 border border-purple-200 dark:border-purple-800 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/10 to-cyan-500/10 border border-purple-200/50 dark:border-purple-700/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <point.icon className="w-7 h-7 text-primary" />
                 </div>
-                
+
                 <h3 className="text-xl font-serif font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
                   {point.title}
                 </h3>
-                
+
                 <p className="text-muted-foreground leading-relaxed">
                   {point.description}
                 </p>
