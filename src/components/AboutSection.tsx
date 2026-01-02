@@ -87,15 +87,6 @@ export function AboutSection() {
             </Card>
           ))}
         </div>
-
-        {/* Bottom Quote */}
-        <div className="mt-16 md:mt-20 text-center">
-          <blockquote className="max-w-2xl mx-auto">
-            <p className="text-xl md:text-2xl font-serif italic text-muted-foreground">
-              "The social network you control is not just a product—it's a movement toward digital sovereignty."
-            </p>
-          </blockquote>
-        </div>
       </div>
     </section>
   );
