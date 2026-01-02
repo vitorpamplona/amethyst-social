@@ -73,16 +73,16 @@ export function HeroSection() {
               <div className="text-center lg:text-left">
                 <div className="flex items-center justify-center lg:justify-start gap-2">
                   <Radio className="w-5 h-5 text-primary" />
-                  <span className="text-2xl md:text-3xl font-bold text-foreground">NIP-65</span>
+                  <span className="text-2xl md:text-3xl font-bold text-foreground">8+</span>
                 </div>
-                <p className="text-sm text-muted-foreground mt-1">Full Relay Control</p>
+                <p className="text-sm text-muted-foreground mt-1">Relay Types</p>
               </div>
               <div className="text-center lg:text-left">
                 <div className="flex items-center justify-center lg:justify-start gap-2">
                   <Zap className="w-5 h-5 text-primary" />
-                  <span className="text-2xl md:text-3xl font-bold text-foreground">100+</span>
+                  <span className="text-2xl md:text-3xl font-bold text-foreground">100%</span>
                 </div>
-                <p className="text-sm text-muted-foreground mt-1">NIPs Supported</p>
+                <p className="text-sm text-muted-foreground mt-1">Open Source</p>
               </div>
             </div>
           </div>
@@ -97,7 +97,7 @@ export function HeroSection() {
               <img
                 src="/amethyst-hero.webp"
                 alt="Amethyst App Screenshot"
-                className="relative w-full max-w-md lg:max-w-lg rounded-3xl shadow-2xl shadow-purple-900/50 border border-purple-500/20"
+                className="relative w-full max-w-lg lg:max-w-xl xl:max-w-2xl rounded-3xl shadow-2xl shadow-purple-900/50 border border-purple-500/20"
               />
 
 
