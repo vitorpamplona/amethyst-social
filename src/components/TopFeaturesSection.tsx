@@ -298,7 +298,12 @@ function RelayVisual() {
             />
             <RelayRow
               name="nostr.wine"
-              types={['Broadcast', 'Trusted']}
+              types={['Trusted']}
+              status="connected"
+            />
+            <RelayRow
+              name="sendit.nosflare.com"
+              types={['Broadcast']}
               status="connected"
             />
             <RelayRow
@@ -313,7 +318,7 @@ function RelayVisual() {
             <span className="text-muted-foreground">11 relay types supported</span>
             <span className="text-green-400 flex items-center gap-1">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              5 connected
+              6 connected
             </span>
           </div>
         </div>
