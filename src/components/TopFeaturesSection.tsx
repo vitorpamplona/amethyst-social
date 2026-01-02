@@ -175,72 +175,79 @@ function TorVisual() {
       <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-violet-600/10 rounded-3xl blur-2xl" />
 
       {/* Main visual container */}
-      <div className="relative bg-purple-950/60 backdrop-blur-sm rounded-3xl border border-purple-500/20 p-8 overflow-hidden">
-        {/* Animated network lines */}
-        <div className="absolute inset-0 opacity-20">
-          <svg className="w-full h-full" viewBox="0 0 400 300" fill="none">
-            <path d="M50 150 Q 100 100 150 150 T 250 150 T 350 150" stroke="url(#tor-gradient)" strokeWidth="2" strokeDasharray="8 4" className="animate-pulse" />
-            <path d="M50 170 Q 100 220 150 170 T 250 170 T 350 170" stroke="url(#tor-gradient)" strokeWidth="2" strokeDasharray="8 4" className="animate-pulse" style={{ animationDelay: '0.5s' }} />
-            <path d="M50 130 Q 100 80 150 130 T 250 130 T 350 130" stroke="url(#tor-gradient)" strokeWidth="2" strokeDasharray="8 4" className="animate-pulse" style={{ animationDelay: '1s' }} />
-            <defs>
-              <linearGradient id="tor-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#9333ea" />
-                <stop offset="100%" stopColor="#7c3aed" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-
+      <div className="relative bg-purple-950/60 backdrop-blur-sm rounded-3xl border border-purple-500/20 p-4 sm:p-6 md:p-8 overflow-hidden">
         {/* Content */}
-        <div className="relative z-10 text-center space-y-6">
-          {/* TOR Network visualization */}
-          <div className="flex items-center justify-center gap-4">
-            <div className="w-16 h-16 rounded-full bg-purple-600/20 border-2 border-purple-500/40 flex items-center justify-center">
-              <span className="text-2xl">📱</span>
+        <div className="relative z-10 space-y-4 sm:space-y-6">
+          {/* TOR Network visualization - Vertical on mobile, horizontal on larger screens */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-2 md:gap-3">
+            {/* Your Device */}
+            <div className="flex flex-col items-center gap-1">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-purple-600/20 border-2 border-purple-500/40 flex items-center justify-center">
+                <span className="text-xl sm:text-2xl">📱</span>
+              </div>
+              <span className="text-xs text-purple-300 sm:hidden">Your Device</span>
             </div>
 
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-purple-500 animate-ping" />
-              <div className="w-12 h-0.5 bg-gradient-to-r from-purple-500 to-violet-500" />
+            {/* Connection line 1 */}
+            <div className="flex items-center gap-1">
+              <div className="w-2 h-2 rounded-full bg-purple-500 animate-ping" />
+              <div className="w-6 sm:w-8 md:w-10 h-0.5 bg-gradient-to-r from-purple-500 to-violet-500" />
             </div>
 
-            <div className="w-12 h-12 rounded-full bg-violet-600/30 border border-violet-500/40 flex items-center justify-center animate-pulse">
-              <Lock className="w-5 h-5 text-violet-400" />
+            {/* TOR Hop 1 */}
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-violet-600/30 border border-violet-500/40 flex items-center justify-center animate-pulse shrink-0">
+              <Lock className="w-4 h-4 sm:w-5 sm:h-5 text-violet-400" />
             </div>
 
-            <div className="w-12 h-0.5 bg-gradient-to-r from-violet-500 to-purple-500" />
+            {/* Connection line 2 */}
+            <div className="w-6 sm:w-8 md:w-10 h-0.5 bg-gradient-to-r from-violet-500 to-purple-500" />
 
-            <div className="w-12 h-12 rounded-full bg-violet-600/30 border border-violet-500/40 flex items-center justify-center animate-pulse" style={{ animationDelay: '0.3s' }}>
-              <Lock className="w-5 h-5 text-violet-400" />
+            {/* TOR Hop 2 */}
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-violet-600/30 border border-violet-500/40 flex items-center justify-center animate-pulse shrink-0" style={{ animationDelay: '0.3s' }}>
+              <Lock className="w-4 h-4 sm:w-5 sm:h-5 text-violet-400" />
             </div>
 
-            <div className="w-12 h-0.5 bg-gradient-to-r from-purple-500 to-violet-500" />
+            {/* Connection line 3 */}
+            <div className="w-6 sm:w-8 md:w-10 h-0.5 bg-gradient-to-r from-purple-500 to-violet-500" />
 
-            <div className="w-12 h-12 rounded-full bg-violet-600/30 border border-violet-500/40 flex items-center justify-center animate-pulse" style={{ animationDelay: '0.6s' }}>
-              <Lock className="w-5 h-5 text-violet-400" />
+            {/* TOR Hop 3 */}
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-violet-600/30 border border-violet-500/40 flex items-center justify-center animate-pulse shrink-0" style={{ animationDelay: '0.6s' }}>
+              <Lock className="w-4 h-4 sm:w-5 sm:h-5 text-violet-400" />
             </div>
 
-            <div className="flex items-center gap-2">
-              <div className="w-12 h-0.5 bg-gradient-to-r from-violet-500 to-purple-500" />
-              <div className="w-3 h-3 rounded-full bg-purple-500 animate-ping" style={{ animationDelay: '0.5s' }} />
+            {/* Connection line 4 */}
+            <div className="flex items-center gap-1">
+              <div className="w-6 sm:w-8 md:w-10 h-0.5 bg-gradient-to-r from-violet-500 to-purple-500" />
+              <div className="w-2 h-2 rounded-full bg-purple-500 animate-ping" style={{ animationDelay: '0.5s' }} />
             </div>
 
-            <div className="w-16 h-16 rounded-full bg-purple-600/20 border-2 border-purple-500/40 flex items-center justify-center">
-              <Server className="w-7 h-7 text-purple-400" />
+            {/* Relay */}
+            <div className="flex flex-col items-center gap-1">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-purple-600/20 border-2 border-purple-500/40 flex items-center justify-center">
+                <Server className="w-5 h-5 sm:w-6 sm:h-6 text-purple-400" />
+              </div>
+              <span className="text-xs text-purple-300 sm:hidden">Relay</span>
             </div>
           </div>
 
-          {/* Labels */}
-          <div className="flex justify-between px-4">
-            <span className="text-sm text-purple-300">Your Device</span>
-            <span className="text-sm text-violet-300">TOR Network (3 Hops)</span>
-            <span className="text-sm text-purple-300">Relay</span>
+          {/* Labels - Hidden on mobile (shown inline above) */}
+          <div className="hidden sm:flex justify-between px-2 md:px-4 text-xs md:text-sm">
+            <span className="text-purple-300">Your Device</span>
+            <span className="text-violet-300">TOR Network (3 Hops)</span>
+            <span className="text-purple-300">Relay</span>
+          </div>
+
+          {/* Mobile label for TOR network */}
+          <div className="sm:hidden text-center">
+            <span className="text-xs text-violet-300">↑ TOR Network (3 Encrypted Hops) ↑</span>
           </div>
 
           {/* Privacy indicator */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-900/30 border border-green-500/30">
-            <CheckCircle2 className="w-4 h-4 text-green-400" />
-            <span className="text-sm text-green-300">IP Address Hidden</span>
+          <div className="flex justify-center">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-green-900/30 border border-green-500/30">
+              <CheckCircle2 className="w-4 h-4 text-green-400" />
+              <span className="text-xs sm:text-sm text-green-300">IP Address Hidden</span>
+            </div>
           </div>
         </div>
       </div>
