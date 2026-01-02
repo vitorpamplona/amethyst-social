@@ -59,8 +59,10 @@ function UpdateCard({ event, profile }: { event: NostrEvent; profile: { name?: s
       </CardHeader>
 
       <CardContent className="pt-0">
-        <div className="text-sm text-foreground leading-relaxed whitespace-pre-wrap break-words">
+        <div className="text-sm text-foreground leading-relaxed whitespace-pre-wrap break-words max-h-48 overflow-hidden relative">
           <NoteContent event={event} />
+          {/* Fade out gradient for long content */}
+          <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-purple-950/90 to-transparent pointer-events-none" />
         </div>
       </CardContent>
     </Card>

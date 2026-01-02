@@ -12,7 +12,25 @@ const AMETHYST_PUBKEY = decoded.type === 'npub' ? decoded.data : '';
 export { AMETHYST_PUBKEY };
 
 /**
- * Fetch updates (kind 1 notes) from Amethyst
+ * Check if an event is a reply (has 'e' or 'p' tags indicating it's replying to something)
+ */
+function isReply(event: { tags: string[][] }): boolean {
+  return event.tags.some(([tag, , , marker]) => {
+    // Check for 'e' tags with reply/root markers or any 'e' tag (standard reply pattern)
+    if (tag === 'e') {
+      // If it has a marker, check if it's a reply marker
+      if (marker === 'reply' || marker === 'root') {
+        return true;
+      }
+      // If no marker but has 'e' tag, it's likely a reply in older format
+      return true;
+    }
+    return false;
+  });
+}
+
+/**
+ * Fetch updates (kind 1 notes) from Amethyst, excluding replies
  */
 export function useAmethystUpdates(limit: number = 10) {
   const { nostr } = useNostr();
@@ -21,17 +39,21 @@ export function useAmethystUpdates(limit: number = 10) {
     queryKey: ['amethyst-updates', limit],
     queryFn: async (c) => {
       const signal = AbortSignal.any([c.signal, AbortSignal.timeout(10000)]);
-      
+
+      // Fetch more events than needed since we'll filter out replies
       const events = await nostr.query([
         {
           kinds: [1],
           authors: [AMETHYST_PUBKEY],
-          limit,
+          limit: limit * 3, // Fetch extra to account for filtered replies
         }
       ], { signal });
 
-      // Sort by created_at descending (most recent first)
-      return events.sort((a, b) => b.created_at - a.created_at);
+      // Filter out replies (events with 'e' tags) and sort by created_at descending
+      return events
+        .filter(event => !isReply(event))
+        .sort((a, b) => b.created_at - a.created_at)
+        .slice(0, limit);
     },
     staleTime: 1000 * 60 * 5, // 5 minutes
   });
@@ -47,7 +69,7 @@ export function useAmethystProfile() {
     queryKey: ['amethyst-profile'],
     queryFn: async (c) => {
       const signal = AbortSignal.any([c.signal, AbortSignal.timeout(5000)]);
-      
+
       const events = await nostr.query([
         {
           kinds: [0],
