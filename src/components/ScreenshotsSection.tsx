@@ -5,22 +5,22 @@ const screenshots = [
   {
     src: '/amethyst-1.webp',
     alt: 'Amethyst Feed View',
-    label: 'Beautiful Feed',
+    label: 'Feeds',
   },
   {
     src: '/amethyst-2.webp',
-    alt: 'Amethyst Profile View',
-    label: 'Rich Profiles',
+    alt: 'Amethyst DM Screen',
+    label: 'Messaging',
   },
   {
     src: '/amethyst-3.webp',
-    alt: 'Amethyst Messaging',
-    label: 'Private Messages',
+    alt: 'Amethyst Notifications',
+    label: 'Notifications',
   },
   {
     src: '/amethyst-4.webp',
     alt: 'Amethyst Features',
-    label: 'Powerful Features',
+    label: 'Live Stream',
   },
 ];
 

@@ -15,6 +15,16 @@ const downloadOptions = [
     features: ['Nostr-native', 'No gatekeepers', 'Community verified'],
   },
   {
+    name: 'Obtainium',
+    description: 'Open-source app that helps you install and update apps directly from releases.',
+    icon: Store,
+    href: '#obtainium-guide',
+    badge: 'Advanced',
+    badgeVariant: 'outline' as const,
+    buttonText: 'View Guide',
+    features: ['Auto-updates from source', 'F-Droid alternative', 'Privacy focused'],
+  },
+  {
     name: 'Google Play',
     description: 'The official Google Play Store. Automatic updates and easy installation.',
     icon: Play,
@@ -33,17 +43,7 @@ const downloadOptions = [
     badgeVariant: 'outline' as const,
     buttonText: 'Download APK',
     features: ['Latest releases', 'Source available', 'Full transparency'],
-  },
-  {
-    name: 'Obtainium',
-    description: 'Open-source app that helps you install and update apps directly from releases.',
-    icon: Store,
-    href: '#obtainium-guide',
-    badge: 'Advanced',
-    badgeVariant: 'outline' as const,
-    buttonText: 'View Guide',
-    features: ['Auto-updates from source', 'F-Droid alternative', 'Privacy focused'],
-  },
+  }
 ];
 
 export function DownloadSection() {
@@ -132,14 +132,6 @@ export function DownloadSection() {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        {/* Android Only Note */}
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground">
-            <Smartphone className="w-4 h-4 inline-block mr-2" />
-            Amethyst is currently available for <strong>Android 8.0+</strong> devices.
-          </p>
         </div>
 
         {/* Source Code Link */}

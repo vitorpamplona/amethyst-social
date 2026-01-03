@@ -57,7 +57,7 @@ export function ObtainiumGuide() {
 
           <p className="text-lg md:text-xl text-muted-foreground">
             Obtainium is an open-source app that helps you install and update apps directly from
-            their official release pages. Perfect for staying up-to-date without app store delays.
+            their code. No stores, no middlemans. Full freedom.
           </p>
         </div>
 
