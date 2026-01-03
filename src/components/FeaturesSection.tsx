@@ -18,7 +18,20 @@ import {
   Search,
   UserPlus,
   CheckCircle2,
-  Wallet
+  Wallet,
+  MapPin,
+  Highlighter,
+  Store,
+  Delete,
+  Trash,
+  LogOut,
+  TrashIcon,
+  Ghost,
+  ShieldBan,
+  CalendarCheck,
+  PartyPopper,
+  Link,
+  Pencil
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -30,26 +43,33 @@ const featureCategories = [
       { icon: MessageSquare, name: 'Private DMs', description: 'NIP-04 & NIP-17 encrypted messaging', badge: 'Encrypted' },
       { icon: Send, name: 'Public Chats', description: 'Join NIP-28 public chat rooms' },
       { icon: Users, name: 'Communities', description: 'NIP-72 moderated communities' },
-      { icon: UserPlus, name: 'Follow Lists', description: 'Organize who you follow' },
+      { icon: UserPlus, name: 'Follow Lists', description: 'Organize who you follow and your starter packs' },
+      { icon: Award, name: 'Badges', description: 'NIP-58 achievement badges' },
+      { icon: PartyPopper, name: 'Custom Reactions', description: 'Gifs and NIP-30 custom emojis' },
     ],
   },
   {
     title: 'Payments & Zaps',
     features: [
       { icon: Zap, name: 'Lightning Zaps', description: 'Send and receive Bitcoin tips', badge: 'NIP-57' },
-      { icon: Shield, name: 'Private Zaps', description: 'Anonymous Bitcoin tipping' },
+      { icon: Store, name: 'Marketplace', description: 'Buy and sell your product' },
+      { icon: Zap, name: 'Cashu Support', description: 'Redeem cashu tokens' },
+      { icon: Shield, name: 'Private Zaps', description: 'Encrypted and anonymous Bitcoin tipping' },
       { icon: Wallet, name: 'Wallet Connect', description: 'NIP-47 wallet integration' },
+      { icon: Zap, name: 'Zap Polls', description: 'Run V4V surveys with your followers' },
     ],
   },
   {
     title: 'Media & Content',
     features: [
       { icon: Radio, name: 'Live Streams', description: 'Watch and interact with NIP-53 live streams', badge: 'Live' },
-      { icon: Video, name: 'Video Events', description: 'NIP-71 video support' },
-      { icon: Image, name: 'Media Previews', description: 'Rich image and video previews' },
-      { icon: FileText, name: 'Long-form Content', description: 'Read NIP-23 articles' },
+      { icon: Video, name: 'Image and Video Feeds', description: 'NIP-71 and NIP-68 video support' },
+      { icon: Image, name: 'Blossom and Media Servers', description: 'Sync your media among servers' },
+      { icon: FileText, name: 'Long-form Content', description: 'Read NIP-23 articles and NIP-54: Wiki pages' },
       { icon: Music, name: 'Audio Tracks', description: 'YakBak and NIP-A0 integration' },
-      { icon: Camera, name: 'In-app Capture', description: 'Take photos and videos directly' },
+      { icon: Camera, name: 'In-app Capture', description: 'Take photos and videos directly in the app' },
+      { icon: Highlighter, name: 'Highlights', description: 'See NIP-84 snippets from your follows' },
+      { icon: Link, name: 'Torrents', description: 'Torrent and Git Support' },
     ],
   },
   {
@@ -58,25 +78,24 @@ const featureCategories = [
       { icon: Key, name: 'Multi-Account', description: 'Manage multiple identities' },
       { icon: CheckCircle2, name: 'NIP-05 Verification', description: 'DNS-based identity verification' },
       { icon: Shield, name: 'Secure Storage', description: 'Keys stored in Android KeyStore' },
-      { icon: Award, name: 'Badges', description: 'NIP-58 achievement badges' },
+      { icon: Trash, name: 'Deletion Requests', description: 'Delete your content anytime' },
+      { icon: Ghost, name: 'Transient Accounts', description: 'Log in and out with an NFC tag' },
+      { icon: ShieldBan, name: 'Proof of Work', description: 'NIP-13 accountability' },
+      { icon: CalendarCheck, name: 'Proof of Existence', description: 'Open timestamp support' },
+      { icon: Pencil, name: 'Drafts', description: 'Never lose a post' },
     ],
   },
   {
     title: 'Discovery & Organization',
     features: [
+      { icon: Search, name: 'Algorithmic Feeds', description: 'NIP-90 Data Vending Machines' },
       { icon: Hash, name: 'Hashtag Following', description: 'Follow topics that interest you' },
-      { icon: Search, name: 'Relay Search', description: 'NIP-50 full-text search' },
+      { icon: MapPin, name: 'Location Following', description: 'Follow discussions around you' },
+      { icon: Search, name: 'Content Search', description: 'NIP-50 full-text search' },
       { icon: Bell, name: 'Push Notifications', description: 'Google & Unified Push support' },
       { icon: Languages, name: 'Auto Translation', description: 'In-device language translation' },
     ],
   },
-];
-
-const highlightedNIPs = [
-  'NIP-01', 'NIP-02', 'NIP-04', 'NIP-05', 'NIP-06', 'NIP-09', 'NIP-10', 'NIP-17',
-  'NIP-18', 'NIP-19', 'NIP-23', 'NIP-25', 'NIP-28', 'NIP-30', 'NIP-36', 'NIP-37',
-  'NIP-42', 'NIP-44', 'NIP-47', 'NIP-50', 'NIP-51', 'NIP-53', 'NIP-56', 'NIP-57',
-  'NIP-58', 'NIP-59', 'NIP-71', 'NIP-72', 'NIP-89', 'NIP-90', 'NIP-94', 'NIP-96',
 ];
 
 export function FeaturesSection() {
@@ -97,7 +116,7 @@ export function FeaturesSection() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6">
             <span className="text-foreground">Everything You Need,</span>
             <br />
-            <span className="text-gradient">Nothing You Don't</span>
+            <span className="text-gradient">One Tap Away</span>
           </h2>
 
           <p className="text-lg md:text-xl text-muted-foreground">
@@ -151,31 +170,6 @@ export function FeaturesSection() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* NIP Support Badge Cloud */}
-        <div className="mt-16 md:mt-20 text-center">
-          <h3 className="text-lg font-semibold mb-6 text-muted-foreground">
-            Extensive NIP Support
-          </h3>
-
-          <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto">
-            {highlightedNIPs.map((nip) => (
-              <Badge
-                key={nip}
-                variant="outline"
-                className="px-3 py-1 text-sm font-mono hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
-              >
-                {nip}
-              </Badge>
-            ))}
-            <Badge
-              variant="outline"
-              className="px-3 py-1 text-sm font-mono bg-primary/10 text-primary border-primary/30"
-            >
-              + many more
-            </Badge>
-          </div>
         </div>
       </div>
     </section>

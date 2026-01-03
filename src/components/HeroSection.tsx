@@ -42,7 +42,7 @@ export function HeroSection() {
 
             {/* Description */}
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              The #1 privacy-focused Nostr client for Android. Built-in TOR support, the most configurable relay system, encrypted messaging, zaps, and complete data sovereignty.
+              A privacy-focused Nostr client for Android. Built-in TOR support, the most configurable relay system, encrypted messaging, zaps, live streams and complete data sovereignty.
             </p>
 
             {/* CTA Buttons */}
