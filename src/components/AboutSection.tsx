@@ -10,7 +10,7 @@ const aboutPoints = [
   {
     icon: Globe,
     title: 'Decentralized',
-    description: 'Connect to any Nostr relay. Your data lives across a distributed network, not controlled by any single company.',
+    description: 'Connect to any Nostr relay. Your data lives across a distributed network, not controlled by any single company. Not even us.',
   },
   {
     icon: Lock,
