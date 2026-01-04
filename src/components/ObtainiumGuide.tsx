@@ -74,10 +74,10 @@ export function ObtainiumGuide() {
               </CardDescription>
             </CardHeader>
             <CardContent className="p-0">
-              <div className="relative aspect-video bg-muted">
+              <div className="flex items-center justify-center aspect-video bg-muted">
                 <video
                   controls
-                  className="w-full h-full object-cover"
+                  className="h-full object-cover"
                   poster="/obtainium-poster.jpg"
                 >
                   <source

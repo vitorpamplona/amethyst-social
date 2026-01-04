@@ -43,7 +43,7 @@ const featureCategories = [
       { icon: MessageSquare, name: 'Private DMs', description: 'NIP-04 & NIP-17 encrypted messaging', badge: 'Encrypted' },
       { icon: Send, name: 'Public Chats', description: 'Join NIP-28 public chat rooms' },
       { icon: Users, name: 'Communities', description: 'NIP-72 moderated communities' },
-      { icon: UserPlus, name: 'Follow Lists', description: 'Organize who you follow and your starter packs' },
+      { icon: UserPlus, name: 'Follow Lists', description: 'Organize follow lists and starter packs' },
       { icon: Award, name: 'Badges', description: 'NIP-58 achievement badges' },
       { icon: PartyPopper, name: 'Custom Reactions', description: 'Gifs and NIP-30 custom emojis' },
     ],
@@ -62,11 +62,11 @@ const featureCategories = [
   {
     title: 'Media & Content',
     features: [
-      { icon: Radio, name: 'Live Streams', description: 'Watch and interact with NIP-53 live streams', badge: 'Live' },
+      { icon: Radio, name: 'Live Streams', description: 'Watch and chat on live streams', badge: 'Live' },
       { icon: Video, name: 'Image and Video Feeds', description: 'NIP-71 and NIP-68 video support' },
       { icon: Image, name: 'Blossom and Media Servers', description: 'Sync your media among servers' },
-      { icon: FileText, name: 'Long-form Content', description: 'Read NIP-23 articles and NIP-54: Wiki pages' },
-      { icon: Music, name: 'Audio Tracks', description: 'YakBak and NIP-A0 integration' },
+      { icon: FileText, name: 'Long-form Content', description: 'Read articles and wiki pages' },
+      { icon: Music, name: 'Audio Content', description: 'YakBaks and Voice Messages' },
       { icon: Camera, name: 'In-app Capture', description: 'Take photos and videos directly in the app' },
       { icon: Highlighter, name: 'Highlights', description: 'See NIP-84 snippets from your follows' },
       { icon: Link, name: 'Torrents', description: 'Torrent and Git Support' },
