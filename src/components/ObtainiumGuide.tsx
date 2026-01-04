@@ -74,7 +74,7 @@ export function ObtainiumGuide() {
               </CardDescription>
             </CardHeader>
             <CardContent className="p-0">
-              <div className="flex items-center justify-center aspect-video bg-muted">
+              <div className="flex items-center justify-center max-h-screen aspect-square bg-muted">
                 <video
                   controls
                   className="h-full object-cover"
