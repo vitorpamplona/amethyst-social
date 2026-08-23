@@ -9,7 +9,6 @@ export const AMETHYST_NPUB = 'npub142gywvjkq0dv6nupggyn2euhx4nduwc7yz5f24ah9rpmu
 const decoded = nip19.decode(AMETHYST_NPUB);
 const AMETHYST_PUBKEY = decoded.type === 'npub' ? decoded.data : '';
 
-export { AMETHYST_PUBKEY };
 
 /**
  * Check if an event is a reply (has 'e' or 'p' tags indicating it's replying to something)

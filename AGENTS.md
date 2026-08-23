@@ -17,10 +17,9 @@ This project is a Nostr client application built with React 18.x, TailwindCSS 3.
 
 - `/docs/`: Specialized documentation for implementation patterns and features
 - `/src/components/`: UI components including NostrProvider for Nostr integration
-  - `/src/components/ui/`: shadcn/ui components (48+ components available)
+  - `/src/components/ui/`: shadcn/ui components (only the ones this project uses are vendored; add more with `npx shadcn@latest add <component>`)
   - `/src/components/auth/`: Authentication-related components (LoginArea, LoginDialog, etc.)
-  - `/src/components/dm/`: Direct messaging UI components (DMMessagingInterface, DMConversationList, DMChatArea)
-  - Zap components: `ZapButton`, `ZapDialog`, `WalletModal` for Lightning payments
+  - Landing page sections: `HeroSection`, `TopFeaturesSection`, `FeaturesSection`, `ScreenshotsSection`, `AboutSection`, `DownloadSection`, `ObtainiumGuide`, `UpdatesSection`, `Header`, `Footer`
 - `/src/hooks/`: Custom hooks including:
   - `useNostr`: Core Nostr protocol integration
   - `useAuthor`: Fetch user profile data by pubkey
@@ -28,22 +27,14 @@ This project is a Nostr client application built with React 18.x, TailwindCSS 3.
   - `useNostrPublish`: Publish events to Nostr
   - `useUploadFile`: Upload files via Blossom servers
   - `useAppContext`: Access global app configuration
-  - `useTheme`: Theme management
   - `useToast`: Toast notifications
   - `useLocalStorage`: Persistent local storage
   - `useLoggedInAccounts`: Manage multiple accounts
   - `useLoginActions`: Authentication actions
-  - `useIsMobile`: Responsive design helper
-  - `useZaps`: Lightning zap functionality with payment processing
-  - `useWallet`: Unified wallet detection (WebLN + NWC)
-  - `useNWC`: Nostr Wallet Connect connection management
-  - `useNWCContext`: Access NWC context provider
-  - `useShakespeare`: AI chat completions with Shakespeare AI API
-- `/src/pages/`: Page components used by React Router (Index, NotFound)
+  - `useAmethystUpdates`: Fetch the Amethyst project's Nostr notes and profile
+- `/src/pages/`: Page components used by React Router (Index, NIP19Page, NotFound)
 - `/src/lib/`: Utility functions and shared logic
-- `/src/contexts/`: React context providers (AppContext, NWCContext, DMContext)
-  - `useDMContext`: Hook exported from DMContext for direct messaging (NIP-04 & NIP-17)
-  - `useConversationMessages`: Hook exported from DMContext for paginated messages
+- `/src/contexts/`: React context providers (AppContext)
 - `/src/test/`: Testing utilities including TestApp component
 - `/public/`: Static assets
 - `App.tsx`: Main app component with provider setup (**CRITICAL**: this file is **already configured** with `QueryClientProvider`, `NostrProvider`, `UnheadProvider` and other important providers - **read this file before making changes**. Changes are usually not necessary unless adding new providers. Changing this file may break the application)
@@ -53,54 +44,25 @@ This project is a Nostr client application built with React 18.x, TailwindCSS 3.
 
 ## UI Components
 
-The project uses shadcn/ui components located in `@/components/ui`. These are unstyled, accessible components built with Radix UI and styled with Tailwind CSS. Available components include:
+The project uses shadcn/ui components located in `@/components/ui`. These are unstyled, accessible components built with Radix UI and styled with Tailwind CSS. Only the components this project actually uses are vendored:
 
-- **Accordion**: Vertically collapsing content panels
 - **Alert**: Displays important messages to users
-- **AlertDialog**: Modal dialog for critical actions requiring confirmation
-- **AspectRatio**: Maintains consistent width-to-height ratio
 - **Avatar**: User profile pictures with fallback support
 - **Badge**: Small status descriptors for UI elements
-- **Breadcrumb**: Navigation aid showing current location in hierarchy
 - **Button**: Customizable button with multiple variants and sizes
-- **Calendar**: Date picker component
 - **Card**: Container with header, content, and footer sections
-- **Carousel**: Slideshow for cycling through elements
-- **Chart**: Data visualization component
-- **Checkbox**: Selectable input element
 - **Collapsible**: Toggle for showing/hiding content
-- **Command**: Command palette for keyboard-first interfaces
-- **ContextMenu**: Right-click menu component
 - **Dialog**: Modal window overlay
-- **Drawer**: Side-sliding panel (using vaul)
 - **DropdownMenu**: Menu that appears from a trigger element
-- **Form**: Form validation and submission handling
-- **HoverCard**: Card that appears when hovering over an element
-- **InputOTP**: One-time password input field
 - **Input**: Text input field
-- **Label**: Accessible form labels
-- **Menubar**: Horizontal menu with dropdowns
-- **NavigationMenu**: Accessible navigation component
-- **Pagination**: Controls for navigating between pages
-- **Popover**: Floating content triggered by a button
-- **Progress**: Progress indicator
-- **RadioGroup**: Group of radio inputs
-- **Resizable**: Resizable panels and interfaces
 - **ScrollArea**: Scrollable container with custom scrollbars
-- **Select**: Dropdown selection component
-- **Separator**: Visual divider between content
-- **Sheet**: Side-anchored dialog component
-- **Sidebar**: Navigation sidebar component
 - **Skeleton**: Loading placeholder
-- **Slider**: Input for selecting a value from a range
-- **Switch**: Toggle switch control
-- **Table**: Data table with headers and rows
 - **Tabs**: Tabbed interface component
 - **Textarea**: Multi-line text input
 - **Toast**: Toast notification component
-- **ToggleGroup**: Group of toggle buttons
-- **Toggle**: Two-state button
-- **Tooltip**: Informational text that appears on hover
+- **Tooltip**: Tooltip provider for hover hints
+
+Any other shadcn/ui component can be added on demand with `npx shadcn@latest add <component>`, which also installs the Radix package it needs.
 
 These components follow a consistent pattern using React's `forwardRef` and use the `cn()` utility for class name merging. Many are built on Radix UI primitives for accessibility and customized with Tailwind CSS.
 
@@ -108,13 +70,7 @@ These components follow a consistent pattern using React's `forwardRef` and use 
 
 The project includes a **`docs/`** directory containing specialized documentation for specific implementation tasks. You are encouraged to add new documentation files to help future development.
 
-- **`docs/AI_CHAT.md`**: Read when building any AI-powered chat interfaces, implementing streaming responses, or integrating with the Shakespeare API.
-
-- **`docs/NOSTR_COMMENTS.md`**: Read when implementing comment systems, adding discussion features to posts/articles, or building community interaction features.
-
-- **`docs/NOSTR_INFINITE_SCROLL.md`**: Read when building feed interfaces, implementing pagination for Nostr events, or creating social media-style infinite scroll experiences.
-
-- **`docs/NOSTR_DIRECT_MESSAGES.md`**: Read when implementing direct messaging features, building chat interfaces, or working with encrypted peer-to-peer communication (NIP-04 and NIP-17).
+- **`docs/NOSTR_INFINITE_SCROLL.md`**: Read when building feed interfaces, implementing pagination for Nostr events, or creating social media-style infinite scroll experiences. The pattern needs `react-intersection-observer`, which is not currently installed.
 
 ## System Prompt Management
 
@@ -728,40 +684,6 @@ const events = await nostr.query(
 4. **Security considerations**: Always use `naddr1` for addressable events instead of just the `d` tag value, as `naddr1` contains the author pubkey needed to create secure filters
 5. **Error handling**: Gracefully handle invalid or unsupported NIP-19 identifiers with 404 responses
 
-### Nostr Edit Profile
-
-To include an Edit Profile form, place the `EditProfileForm` component in the project:
-
-```tsx
-import { EditProfileForm } from "@/components/EditProfileForm";
-
-function EditProfilePage() {
-  return (
-    <div>
-      {/* you may want to wrap this in a layout or include other components depending on the project ... */}
-
-      <EditProfileForm />
-    </div>
-  );
-}
-```
-
-The `EditProfileForm` component displays just the form. It requires no props, and will "just work" automatically.
-
-### Direct Messaging (NIP-04 & NIP-17)
-
-The project includes a complete direct messaging system with real-time updates, encrypted storage, and support for both NIP-04 (legacy) and NIP-17 (modern private messaging) protocols. **The system is disabled by default** - enable it by passing `enabled: true` in the `DMProvider` config.
-
-For complete implementation guide including:
-- Setup and configuration
-- Sending messages and file attachments
-- Using the `DMMessagingInterface` component
-- Building custom messaging UIs
-- Protocol comparison (NIP-04 vs NIP-17)
-- Advanced features and architecture
-
-See **`docs/NOSTR_DIRECT_MESSAGES.md`**
-
 ### Uploading Files on Nostr
 
 Use the `useUploadFile` hook to upload files. This hook uses Blossom servers for file storage and returns NIP-94 compatible tags.
@@ -850,26 +772,12 @@ The app uses NIP-65 compatible relay management with automatic sync when users l
 
 ### Relay Management
 
-The project includes a complete NIP-65 relay management system:
+The project includes NIP-65 relay handling:
 
-- **RelayListManager**: Component for managing multiple relays with read/write permissions
-- **NostrSync**: Automatically syncs user's NIP-65 relay list when they log in
+- **NostrSync**: Automatically syncs the user's NIP-65 relay list when they log in
 - **Automatic Publishing**: Changes to relay configuration are automatically published as NIP-65 events when the user is logged in
 
-Use the `RelayListManager` component to provide relay management interfaces:
-
-```tsx
-import { RelayListManager } from '@/components/RelayListManager';
-
-function SettingsPage() {
-  return (
-    <div>
-      <h2>Relay Settings</h2>
-      <RelayListManager />
-    </div>
-  );
-}
-```
+Relay configuration lives in `AppConfig.relayMetadata` and is read through `useAppContext`. There is no relay-management UI component in this project; build one against `updateConfig` if you need it.
 
 ## Routing
 
@@ -1034,7 +942,7 @@ To add custom fonts, follow these steps:
 
 The project includes a complete light/dark theme system using CSS custom properties. The theme can be controlled via:
 
-- `useTheme` hook for programmatic theme switching
+- Theme is applied to `<html>` by `AppProvider`; change it via `updateConfig` from `useAppContext`
 - CSS custom properties defined in `src/index.css`
 - Automatic dark mode support with `.dark` class
 
