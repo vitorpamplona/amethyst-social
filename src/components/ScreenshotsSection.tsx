@@ -1,24 +1,24 @@
 import { useState } from 'react';
-import { cn } from '@/lib/utils';
+import { cn, publicUrl } from '@/lib/utils';
 
 const screenshots = [
   {
-    src: '/amethyst-1.webp',
+    src: publicUrl('amethyst-1.webp'),
     alt: 'Amethyst Feed View',
     label: 'Feeds',
   },
   {
-    src: '/amethyst-2.webp',
+    src: publicUrl('amethyst-2.webp'),
     alt: 'Amethyst DM Screen',
     label: 'Messaging',
   },
   {
-    src: '/amethyst-3.webp',
+    src: publicUrl('amethyst-3.webp'),
     alt: 'Amethyst Notifications',
     label: 'Notifications',
   },
   {
-    src: '/amethyst-4.webp',
+    src: publicUrl('amethyst-4.webp'),
     alt: 'Amethyst Features',
     label: 'Live Stream',
   },

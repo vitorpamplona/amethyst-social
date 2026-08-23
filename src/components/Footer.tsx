@@ -1,5 +1,6 @@
 import { Github, ExternalLink, Heart } from 'lucide-react';
 import { AMETHYST_NPUB } from '@/hooks/useAmethystUpdates';
+import { publicUrl } from '@/lib/utils';
 
 const footerLinks = {
   resources: [
@@ -30,7 +31,7 @@ export function Footer() {
           <div className="lg:col-span-1">
             <a href="#" className="flex items-center gap-3 mb-4 group">
               <img
-                src="/amethyst-logo.jpg"
+                src={publicUrl("amethyst-logo.jpg")}
                 alt="Amethyst"
                 className="w-10 h-10 rounded-xl transition-transform group-hover:scale-110"
               />

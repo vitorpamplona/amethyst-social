@@ -1,5 +1,5 @@
 import { useSeoMeta } from "@unhead/react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 const NotFound = () => {
@@ -22,9 +22,9 @@ const NotFound = () => {
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100">404</h1>
         <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 underline">
+        <Link to="/" className="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 underline">
           Return to Home
-        </a>
+        </Link>
       </div>
     </div>
   );

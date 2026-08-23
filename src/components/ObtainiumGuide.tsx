@@ -1,6 +1,7 @@
 import { Play, Download, Settings, CheckCircle, ExternalLink, Video } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { publicUrl } from '@/lib/utils';
 
 const steps = [
   {
@@ -78,7 +79,7 @@ export function ObtainiumGuide() {
                 <video
                   controls
                   className="h-full object-cover"
-                  poster="/obtainium-poster.jpg"
+                  poster={publicUrl("obtainium-poster.jpg")}
                 >
                   <source
                     src="https://blob.satellite.earth/2bd7e308c1797d64fca09b1d61e9bde24c68dd45e501c7383eff1e85392df11f"
