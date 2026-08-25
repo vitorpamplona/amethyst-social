@@ -38,14 +38,6 @@
 
     --radius: 0.75rem;
 
-    --sidebar-background: 250 40% 8%;
-    --sidebar-foreground: 250 10% 90%;
-    --sidebar-primary: 259 65% 65%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 250 35% 14%;
-    --sidebar-accent-foreground: 250 10% 90%;
-    --sidebar-border: 250 30% 16%;
-    --sidebar-ring: 259 65% 65%;
   }
 
 }
@@ -70,8 +62,6 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-indigo-400 to-cyan-400;
   }
 
-
-
   .bg-amethyst-gradient {
     background: linear-gradient(135deg, #7c5db5 0%, #5b6ba8 50%, #4a90a4 100%);
   }
@@ -79,7 +69,6 @@
   .glow-amethyst {
     box-shadow: 0 0 40px rgba(124, 93, 181, 0.4), 0 0 80px rgba(74, 144, 164, 0.2);
   }
-
 
 }
 
@@ -116,62 +105,15 @@ html {
   }
 }
 
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(124, 93, 181, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(124, 93, 181, 0.6);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
 
-.animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
-}
-
-.animate-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
-}
-
 /* Gradient backgrounds - Dark by default */
-.bg-gradient-radial {
-  background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
-}
-
 .bg-hero-gradient {
   background: linear-gradient(135deg,
     hsl(250, 45%, 8%) 0%,
     hsl(255, 50%, 12%) 40%,
     hsl(240, 40%, 10%) 100%
   );
-}
-
-
-
-/* Glass morphism effects for dark theme */
-.glass {
-  background: rgba(30, 20, 50, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(139, 112, 191, 0.15);
-}
-
-.glass-card {
-  background: rgba(35, 25, 55, 0.7);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(139, 112, 191, 0.1);
 }

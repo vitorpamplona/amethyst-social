@@ -5,6 +5,10 @@ import { defineConfig } from "vitest/config";
 
 // https://vitejs.dev/config/
 export default defineConfig(() => ({
+  // Static hosts that serve the app from a subdirectory (GitHub Pages project
+  // sites, for example) need every asset URL prefixed with that subdirectory.
+  // Set BASE_PATH at build time, e.g. BASE_PATH=/amethyst-social/.
+  base: process.env.BASE_PATH || "/",
   server: {
     host: "::",
     port: 8080,

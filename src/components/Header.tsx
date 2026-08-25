@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { LoginArea } from '@/components/auth/LoginArea';
-import { cn } from '@/lib/utils';
+import { cn, publicUrl } from '@/lib/utils';
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -39,7 +38,7 @@ export function Header() {
           <a href="#" className="flex items-center gap-3 group">
             <div className="relative">
               <img
-                src="/amethyst-logo.jpg"
+                src={publicUrl("amethyst-logo.jpg")}
                 alt="Amethyst"
                 className="w-10 h-10 md:w-12 md:h-12 rounded-xl transition-transform group-hover:scale-110"
               />
@@ -65,10 +64,6 @@ export function Header() {
 
           {/* Actions */}
           <div className="flex items-center gap-2">
-            <div className="hidden md:block">
-              <LoginArea />
-            </div>
-
             <a
               href="https://github.com/vitorpamplona/amethyst"
               target="_blank"
@@ -117,7 +112,6 @@ export function Header() {
                 </a>
               ))}
               <div className="flex items-center gap-2 px-4 py-3">
-                <LoginArea className="flex-1" />
                 <a
                   href="https://github.com/vitorpamplona/amethyst"
                   target="_blank"

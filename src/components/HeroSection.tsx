@@ -1,5 +1,6 @@
 import { ArrowDown, Play, Shield, Zap, Code } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { publicUrl } from '@/lib/utils';
 
 export function HeroSection() {
   return (
@@ -95,7 +96,7 @@ export function HeroSection() {
 
               {/* Main Image */}
               <img
-                src="/amethyst-hero.webp"
+                src={publicUrl("amethyst-hero.webp")}
                 alt="Amethyst App Screenshot"
                 className="relative w-full max-w-xl lg:max-w-2xl xl:max-w-3xl rounded-3xl shadow-2xl shadow-purple-900/50 border border-purple-500/20"
               />
