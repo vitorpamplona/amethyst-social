@@ -76,7 +76,7 @@ describe('NoteContent', () => {
     expect(screen.queryByRole('link')).not.toBeInTheDocument();
   });
 
-  it('renders hashtags as links', () => {
+  it('renders hashtags as plain text', () => {
     const event: NostrEvent = {
       id: 'test-id',
       pubkey: 'test-pubkey',
@@ -93,13 +93,11 @@ describe('NoteContent', () => {
       </TestApp>
     );
 
-    const nostrHashtag = screen.getByRole('link', { name: '#nostr' });
-    const bitcoinHashtag = screen.getByRole('link', { name: '#bitcoin' });
-    
-    expect(nostrHashtag).toBeInTheDocument();
-    expect(bitcoinHashtag).toBeInTheDocument();
-    expect(nostrHashtag).toHaveAttribute('href', '/t/nostr');
-    expect(bitcoinHashtag).toHaveAttribute('href', '/t/bitcoin');
+    // This site has no hashtag pages, so hashtags are shown without a link.
+    expect(screen.getByText(/#nostr/)).toBeInTheDocument();
+    expect(screen.getByText(/#bitcoin/)).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: '#nostr' })).toBeNull();
+    expect(screen.queryByRole('link', { name: '#bitcoin' })).toBeNull();
   });
 
   it('generates deterministic names for users without metadata and styles them differently', () => {

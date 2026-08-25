@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
 import { type NostrEvent } from '@nostrify/nostrify';
-import { Link } from 'react-router-dom';
 import { nip19 } from 'nostr-tools';
 import { useAuthor } from '@/hooks/useAuthor';
 import { genUserName } from '@/lib/genUserName';
@@ -69,13 +68,15 @@ export function NoteContent({
           } else {
             // For other types, just show as a link
             parts.push(
-              <Link 
+              <a
                 key={`nostr-${keyCounter++}`}
-                to={`/${nostrId}`}
+                href={`https://njump.me/${nostrId}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-blue-500 hover:underline break-all"
               >
                 {fullMatch}
-              </Link>
+              </a>
             );
           }
         } catch {
@@ -84,16 +85,7 @@ export function NoteContent({
         }
       } else if (hashtag) {
         // Handle hashtags
-        const tag = hashtag.slice(1); // Remove the #
-        parts.push(
-          <Link 
-            key={`hashtag-${keyCounter++}`}
-            to={`/t/${tag}`}
-            className="text-blue-500 hover:underline"
-          >
-            {hashtag}
-          </Link>
-        );
+        parts.push(hashtag);
       }
       
       lastIndex = index + fullMatch.length;
@@ -127,8 +119,10 @@ function NostrMention({ pubkey }: { pubkey: string }) {
   const displayName = author.data?.metadata?.name ?? genUserName(pubkey);
 
   return (
-    <Link 
-      to={`/${npub}`}
+    <a
+      href={`https://njump.me/${npub}`}
+      target="_blank"
+      rel="noopener noreferrer"
       className={cn(
         "font-medium hover:underline",
         hasRealName 
@@ -137,6 +131,6 @@ function NostrMention({ pubkey }: { pubkey: string }) {
       )}
     >
       @{displayName}
-    </Link>
+    </a>
   );
 }
