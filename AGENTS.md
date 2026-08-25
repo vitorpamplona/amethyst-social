@@ -18,19 +18,13 @@ This project is a Nostr client application built with React 18.x, TailwindCSS 3.
 - `/docs/`: Specialized documentation for implementation patterns and features
 - `/src/components/`: UI components including NostrProvider for Nostr integration
   - `/src/components/ui/`: shadcn/ui components (only the ones this project uses are vendored; add more with `npx shadcn@latest add <component>`)
-  - `/src/components/auth/`: Authentication-related components (LoginArea, LoginDialog, etc.)
   - Landing page sections: `HeroSection`, `TopFeaturesSection`, `FeaturesSection`, `ScreenshotsSection`, `AboutSection`, `DownloadSection`, `ObtainiumGuide`, `UpdatesSection`, `Header`, `Footer`
 - `/src/hooks/`: Custom hooks including:
   - `useNostr`: Core Nostr protocol integration
   - `useAuthor`: Fetch user profile data by pubkey
-  - `useCurrentUser`: Get currently logged-in user
-  - `useNostrPublish`: Publish events to Nostr
-  - `useUploadFile`: Upload files via Blossom servers
   - `useAppContext`: Access global app configuration
   - `useToast`: Toast notifications
   - `useLocalStorage`: Persistent local storage
-  - `useLoggedInAccounts`: Manage multiple accounts
-  - `useLoginActions`: Authentication actions
   - `useAmethystUpdates`: Fetch the Amethyst project's Nostr notes and profile
 - `/src/pages/`: Page components used by React Router (Index, NIP19Page, NotFound)
 - `/src/lib/`: Utility functions and shared logic
@@ -493,64 +487,6 @@ interface NostrMetadata {
 }
 ```
 
-### The `useNostrPublish` Hook
-
-To publish events, use the `useNostrPublish` hook in this project. This hook automatically adds a "client" tag to published events.
-
-```tsx
-import { useState } from 'react';
-
-import { useCurrentUser } from "@/hooks/useCurrentUser";
-import { useNostrPublish } from '@/hooks/useNostrPublish';
-
-export function MyComponent() {
-  const [ data, setData] = useState<Record<string, string>>({});
-
-  const { user } = useCurrentUser();
-  const { mutate: createEvent } = useNostrPublish();
-
-  const handleSubmit = () => {
-    createEvent({ kind: 1, content: data.content });
-  };
-
-  if (!user) {
-    return <span>You must be logged in to use this form.</span>;
-  }
-
-  return (
-    <form onSubmit={handleSubmit} disabled={!user}>
-      {/* ...some input fields */}
-    </form>
-  );
-}
-```
-
-The `useCurrentUser` hook should be used to ensure that the user is logged in before they are able to publish Nostr events.
-
-### Nostr Login
-
-To enable login with Nostr, simply use the `LoginArea` component already included in this project.
-
-```tsx
-import { LoginArea } from "@/components/auth/LoginArea";
-
-function MyComponent() {
-  return (
-    <div>
-      {/* other components ... */}
-
-      <LoginArea className="max-w-60" />
-    </div>
-  );
-}
-```
-
-The `LoginArea` component handles all the login-related UI and interactions, including displaying login dialogs, sign up functionality, and switching between accounts. It should not be wrapped in any conditional logic.
-
-`LoginArea` displays both "Log in" and "Sign Up" buttons when the user is logged out, and changes to an account switcher once the user is logged in. It is an inline-flex element by default. To make it expand to the width of its container, you can pass a className like `flex` (to make it a block element) or `w-full`. If it is left as inline-flex, it's recommended to set a max width.
-
-**Important**: Social applications should include a profile menu button in the main interface (typically in headers/navigation) to provide access to account settings, profile editing, and logout functionality. Don't only show `LoginArea` in logged-out states.
-
 ### `npub`, `naddr`, and other Nostr addresses
 
 Nostr defines a set of bech32-encoded identifiers in NIP-19. Their prefixes and purposes:
@@ -684,52 +620,6 @@ const events = await nostr.query(
 4. **Security considerations**: Always use `naddr1` for addressable events instead of just the `d` tag value, as `naddr1` contains the author pubkey needed to create secure filters
 5. **Error handling**: Gracefully handle invalid or unsupported NIP-19 identifiers with 404 responses
 
-### Uploading Files on Nostr
-
-Use the `useUploadFile` hook to upload files. This hook uses Blossom servers for file storage and returns NIP-94 compatible tags.
-
-```tsx
-import { useUploadFile } from "@/hooks/useUploadFile";
-
-function MyComponent() {
-  const { mutateAsync: uploadFile, isPending: isUploading } = useUploadFile();
-
-  const handleUpload = async (file: File) => {
-    try {
-      // Provides an array of NIP-94 compatible tags
-      // The first tag in the array contains the URL
-      const [[_, url]] = await uploadFile(file);
-      // ...use the url
-    } catch (error) {
-      // ...handle errors
-    }
-  };
-
-  // ...rest of component
-}
-```
-
-To attach files to kind 1 events, each file's URL should be appended to the event's `content`, and an `imeta` tag should be added for each file. For kind 0 events, the URL by itself can be used in relevant fields of the JSON content.
-
-### Nostr Encryption and Decryption
-
-The logged-in user has a `signer` object (matching the NIP-07 signer interface) that can be used for encryption and decryption. The signer's nip44 methods handle all cryptographic operations internally, including key derivation and conversation key management, so you never need direct access to private keys. Always use the signer interface for encryption rather than requesting private keys from users, as this maintains security and follows best practices.
-
-```ts
-// Get the current user
-const { user } = useCurrentUser();
-
-// Optional guard to check that nip44 is available
-if (!user.signer.nip44) {
-  throw new Error("Please upgrade your signer extension to a version that supports NIP-44 encryption");
-}
-
-// Encrypt message to self
-const encrypted = await user.signer.nip44.encrypt(user.pubkey, "hello world");
-// Decrypt message to self
-const decrypted = await user.signer.nip44.decrypt(user.pubkey, encrypted) // "hello world"
-```
-
 ### Rendering Rich Text Content
 
 Nostr text notes (kind 1, 11, and 1111) have a plaintext `content` field that may contain URLs, hashtags, and Nostr URIs. These events should render their content using the `NoteContent` component:
@@ -772,12 +662,9 @@ The app uses NIP-65 compatible relay management with automatic sync when users l
 
 ### Relay Management
 
-The project includes NIP-65 relay handling:
+Relay configuration lives in `AppConfig.relayMetadata` and is read through `useAppContext`. The defaults are set in `App.tsx`.
 
-- **NostrSync**: Automatically syncs the user's NIP-65 relay list when they log in
-- **Automatic Publishing**: Changes to relay configuration are automatically published as NIP-65 events when the user is logged in
-
-Relay configuration lives in `AppConfig.relayMetadata` and is read through `useAppContext`. There is no relay-management UI component in this project; build one against `updateConfig` if you need it.
+This site is read-only: it has no login, no signer and no publishing. Adding any of those means bringing back `NostrLoginProvider`, a `useCurrentUser` hook and a login UI first.
 
 ## Routing
 
@@ -801,7 +688,7 @@ The router includes automatic scroll-to-top functionality and a 404 NotFound pag
 - Uses Vite for fast development and production builds
 - Component-based architecture with React hooks
 - Default connection to one Nostr relay for best performance
-- Comprehensive provider setup with NostrLoginProvider, QueryClientProvider, and custom AppProvider
+- Provider setup with QueryClientProvider, NostrProvider and the custom AppProvider
 - **Never use the `any` type**: Always use proper TypeScript types for type safety
 
 ## Loading States
