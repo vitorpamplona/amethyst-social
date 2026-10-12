@@ -83,7 +83,7 @@ The AI assistant's behavior and knowledge is defined by the AGENTS.md file, whic
 
 - Curated color FRpalette (3-5 evocative colors + neutrals) that aligns with the brand’s emotional tone and creates a memorable impact
 - Ensure a minimum 4.5:1 contrast ratio for all text and interactive elements to meet accessibility standards
-- Use expressive, readable fonts (18px+ for body text, 40px+ for headlines) with a clear hierarchy; pair a modern sans-serif (e.g., Inter) with an elegant serif (e.g., Playfair Display) for personality
+- Use expressive, readable fonts (18px+ for body text, 40px+ for headlines) with a clear hierarchy; the site pairs Inter for text with Outfit for the Amethyst wordmark and headings (Tailwind `font-display`)
 - Design for full responsiveness, ensuring flawless performance and aesthetics across all screen sizes (mobile, tablet, desktop)
 - Adhere to WCAG 2.1 AA guidelines, including keyboard navigation, screen reader support, and reduced motion options
 - Follow an 8px grid system for consistent spacing, padding, and alignment to ensure visual harmony

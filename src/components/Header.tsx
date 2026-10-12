@@ -7,7 +7,7 @@ export function Header() {
     <header className="container mx-auto flex h-16 items-center justify-between px-4 md:h-20">
       <a href={publicUrl('')} className="flex items-center gap-3">
         <img src={publicUrl('amethyst-logo.jpg')} alt="" className="h-10 w-10 rounded-xl" />
-        <span className="font-serif text-xl font-bold text-gradient">Amethyst</span>
+        <span className="font-display text-xl font-semibold tracking-[-0.03em] text-gradient">Amethyst</span>
       </a>
       <a
         href={REPO_URL}
