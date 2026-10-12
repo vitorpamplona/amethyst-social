@@ -6,7 +6,7 @@ const links = [
   { label: 'Follow on Nostr', href: `https://njump.me/${AMETHYST_NPUB}` },
   { label: 'Verify the APK signature', href: APK_SIGNATURE_URL },
   { label: 'Translate', href: 'https://crowdin.com/project/amethyst-social' },
-  { label: 'What is Nostr?', href: 'https://nostr.com' },
+  { label: 'What is Nostr?', href: 'https://nostr.org/' },
 ];
 
 export function Footer() {
