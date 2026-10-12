@@ -1,26 +1,27 @@
 import { publicUrl } from '@/lib/utils';
 
-const screenshots = [
-  { src: 'amethyst-1.webp', alt: 'Home feed' },
-  { src: 'amethyst-2.webp', alt: 'Messages' },
-  { src: 'amethyst-3.webp', alt: 'Notifications' },
-  { src: 'amethyst-4.webp', alt: 'Live stream with chat' },
-];
-
+/** The desktop app on macOS, with the Android app overlapping its corner. */
 export function Screenshots() {
   return (
-    <div className="flex w-full snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:justify-center">
-      {screenshots.map((shot) => (
+    <div className="w-full px-4">
+      <div className="relative mx-auto max-w-5xl pb-[6%]">
         <img
-          key={shot.src}
-          src={publicUrl(shot.src)}
-          alt={shot.alt}
+          src={publicUrl('amethyst-desktop.webp')}
+          alt="Amethyst on macOS, showing the home feed, a video post and the notifications chart"
+          width={1743}
+          height={1199}
+          loading="lazy"
+          className="h-auto w-full"
+        />
+        <img
+          src={publicUrl('amethyst-1.webp')}
+          alt="Amethyst on Android, showing the home feed"
           width={648}
           height={1440}
           loading="lazy"
-          className="h-auto w-40 shrink-0 snap-center rounded-2xl border border-purple-500/20 shadow-xl shadow-purple-900/40 md:w-48"
+          className="absolute bottom-0 right-0 h-auto w-[22%] rounded-[8%/3.6%] border border-purple-500/30 shadow-2xl shadow-black/60"
         />
-      ))}
+      </div>
     </div>
   );
 }
