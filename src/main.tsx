@@ -1,8 +1,5 @@
 import { createRoot } from 'react-dom/client';
 
-// Import polyfills first
-import './lib/polyfills.ts';
-
 // Fonts
 import '@fontsource-variable/inter';
 import '@fontsource/playfair-display/400.css';
