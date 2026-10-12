@@ -231,7 +231,7 @@ export function DownloadPanel({ release }: { release: Release | null }) {
             type="button"
             role="tab"
             aria-selected={selected === p.id}
-            aria-controls="download-panel"
+            aria-controls={Panel ? 'download-panel' : undefined}
             tabIndex={selected === p.id || (selected === null && p.id === 'android') ? 0 : -1}
             onClick={() => setSelected(p.id)}
             className={cn(

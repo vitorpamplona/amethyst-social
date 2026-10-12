@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="content-security-policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; frame-src 'self' https:; font-src 'self'; base-uri 'self'; manifest-src 'self'; connect-src 'self' https://api.github.com; img-src 'self' data: blob: https:; media-src 'self' blob: https:">
+    <meta http-equiv="content-security-policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; base-uri 'self'; manifest-src 'self'; connect-src 'self' https://api.github.com; img-src 'self' data:">
     <title>Amethyst: Nostr for Android, Mac, Windows and Linux</title>
     <meta name="description" content="Download Amethyst, the open-source Nostr client, for Android, macOS, Windows and Linux.">
     <meta name="theme-color" content="#1a1033">
@@ -27,6 +27,9 @@
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <p>Amethyst is a Nostr client for Android, macOS, Windows and Linux. Download it from the <a href="https://github.com/vitorpamplona/amethyst/releases/latest">latest GitHub release</a>.</p>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

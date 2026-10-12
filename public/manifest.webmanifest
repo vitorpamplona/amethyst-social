@@ -4,8 +4,8 @@
   "description": "Download Amethyst, the open-source Nostr client, for Android, macOS, Windows and Linux.",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#faf5ff",
-  "theme_color": "#9333ea",
+  "background_color": "#0b0816",
+  "theme_color": "#1a1033",
   "icons": [
     {
       "src": "./amethyst-logo.svg",
