@@ -16,14 +16,15 @@ This project is a Nostr client application built with React 18.x, TailwindCSS 3.
 
 - `/src/components/`: UI components including NostrProvider for Nostr integration
   - `/src/components/ui/`: shadcn/ui components (only the ones this project uses are vendored; add more with `npx shadcn@latest add <component>`)
-  - Landing page sections: `HeroSection`, `TopFeaturesSection`, `FeaturesSection`, `ScreenshotsSection`, `AboutSection`, `DownloadSection`, `ObtainiumGuide`, `UpdatesSection`, `Header`, `Footer`
+  - Page parts: `Header`, `DownloadPanel` (platform tabs and install options), `CopyCommand`, `Screenshots`, `Footer`
 - `/src/hooks/`: Custom hooks including:
+  - `useLatestRelease`: Load the latest GitHub release so download links point at its files
   - `useAuthor`: Fetch a profile by pubkey
   - `useAmethystUpdates`: Fetch the Amethyst project's Nostr notes and profile
 
   `useNostr` is imported directly from `@nostrify/react`, not from this directory.
 - `/src/pages/`: `Index` (the whole landing page) and `NotFound`
-- `/src/lib/`: Utilities — `relays.ts` (the relay list), `utils.ts` (`cn`, `publicUrl`), `genUserName.ts`, `polyfills.ts`
+- `/src/lib/`: Utilities — `downloads.ts` (platform detection, release file matching, store links), `relays.ts` (the relay list), `utils.ts` (`cn`, `publicUrl`), `genUserName.ts`, `polyfills.ts`
 - `/src/test/`: Testing utilities including TestApp component
 - `/public/`: Static assets
 - `App.tsx`: Provider setup — `QueryClientProvider` and `NostrProvider`
