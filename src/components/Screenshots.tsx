@@ -1,27 +1,27 @@
 import { publicUrl } from '@/lib/utils';
 
-/** The desktop app on macOS, with the Android app overlapping its corner. */
+/** The desktop app on macOS, with its phone layout in a narrow window overlapping the corner. */
 export function Screenshots() {
   return (
     <div className="w-full px-4">
-      <div className="relative mx-auto max-w-5xl pb-[6%]">
+      <div className="relative mx-auto max-w-4xl pb-[8%]">
         <img
           src={publicUrl('amethyst-desktop.webp')}
-          srcSet={`${publicUrl('amethyst-desktop-1100.webp')} 1100w, ${publicUrl('amethyst-desktop.webp')} 1743w`}
-          sizes="(min-width: 1056px) 1024px, calc(100vw - 2rem)"
-          alt="Amethyst on macOS, showing the home feed, a video post and the notifications chart"
-          width={1743}
-          height={1199}
+          srcSet={`${publicUrl('amethyst-desktop-1100.webp')} 1100w, ${publicUrl('amethyst-desktop.webp')} 1587w`}
+          sizes="(min-width: 928px) 896px, calc(100vw - 2rem)"
+          alt="Amethyst on macOS, showing the navigation drawer, the home feed and the notifications column"
+          width={1587}
+          height={1337}
           decoding="async"
           className="h-auto w-full"
         />
         <img
-          src={publicUrl('amethyst-1.webp')}
-          alt="Amethyst on Android, showing the home feed"
-          width={480}
-          height={1067}
+          src={publicUrl('amethyst-mobile.webp')}
+          alt="Amethyst's phone layout, showing the home feed and the bottom navigation bar"
+          width={549}
+          height={1101}
           loading="lazy"
-          className="absolute bottom-0 right-0 h-auto w-[22%] rounded-[8%/3.6%] border border-purple-500/30 shadow-2xl shadow-black/60"
+          className="absolute -right-[3%] bottom-0 h-auto w-[28%]"
         />
       </div>
     </div>
