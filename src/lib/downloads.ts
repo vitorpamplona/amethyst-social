@@ -4,6 +4,9 @@ export const LATEST_RELEASE_API = 'https://api.github.com/repos/vitorpamplona/am
 export const ZAPSTORE_URL = 'https://zapstore.dev/apps/com.vitorpamplona.amethyst';
 export const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.vitorpamplona.amethyst';
 export const OBTAINIUM_URL = 'https://github.com/ImranR98/Obtainium';
+export const FDROID_URL = 'https://f-droid.org/packages/com.vitorpamplona.amethyst/';
+/** Obtainium's own redirect page: it opens the app with Amethyst's repository filled in. */
+export const OBTAINIUM_ADD_URL = `https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/${REPO_URL}`;
 export const APK_SIGNATURE_URL = `${REPO_URL}#verifying-the-apk-signature`;
 export const AMETHYST_NPUB = 'npub142gywvjkq0dv6nupggyn2euhx4nduwc7yz5f24ah9rpmunr2s39se3xrj0';
 

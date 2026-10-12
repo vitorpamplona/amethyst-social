@@ -3,11 +3,12 @@ import { CopyCommand } from '@/components/CopyCommand';
 import { cn } from '@/lib/utils';
 import {
   detectPlatform,
+  FDROID_URL,
   formatSize,
+  OBTAINIUM_ADD_URL,
   OBTAINIUM_URL,
   PLATFORMS,
   PLAY_STORE_URL,
-  REPO_URL,
   resolveDownloads,
   ZAPSTORE_URL,
   type DetectedPlatform,
@@ -60,24 +61,67 @@ function Row({ label, children }: { label: string; children: ReactNode }) {
 
 const Dot = () => <span className="text-muted-foreground">·</span>;
 
+function StoreRow({ name, note, href, action, actionLabel }: { name: string; note: ReactNode; href: string; action: string; actionLabel: string }) {
+  return (
+    <li className="flex items-center gap-4 px-4 py-3">
+      <div className="min-w-0 flex-1 text-left">
+        <div className="font-medium text-foreground">{name}</div>
+        <div className="text-sm text-muted-foreground">{note}</div>
+      </div>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={actionLabel}
+        className="shrink-0 rounded-lg border border-purple-500/30 px-3 py-1.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:bg-purple-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      >
+        {action}
+      </a>
+    </li>
+  );
+}
+
 function AndroidPanel({ links }: { links: Links }) {
   return (
     <>
-      <div className="flex flex-wrap justify-center gap-3">
-        <PrimaryButton href={ZAPSTORE_URL} title="Get it on Zapstore" sub="The Nostr app store" />
-        <PrimaryButton href={PLAY_STORE_URL} title="Google Play" sub="Updates through the Play Store" variant="outline" />
-      </div>
-      <div className="mx-auto grid w-fit max-w-full gap-3">
-        <Row label="Obtainium">
-          <CopyCommand text={REPO_URL} />
-          <a href={OBTAINIUM_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground">
-            Get Obtainium
-          </a>
-        </Row>
-        <Row label="APK">
-          <FileLink link={links.apk}>{detail('.apk', 'arm64', formatSize(links.apk.size))}</FileLink>
-        </Row>
-      </div>
+      <PrimaryButton href={ZAPSTORE_URL} title="Get it on Zapstore" sub="The Nostr app store · gets updates first" />
+      <ul className="w-full max-w-md divide-y divide-purple-500/15 rounded-xl border border-purple-500/20 bg-purple-950/40">
+        <StoreRow
+          name="Google Play"
+          note="Updates a few days after each release"
+          href={PLAY_STORE_URL}
+          action="Open"
+          actionLabel="Open Amethyst on Google Play"
+        />
+        <StoreRow
+          name="F-Droid"
+          note="Updates up to two weeks after each release"
+          href={FDROID_URL}
+          action="Open"
+          actionLabel="Open Amethyst on F-Droid"
+        />
+        <StoreRow
+          name="Obtainium"
+          note={
+            <>
+              Installs and updates from GitHub.{' '}
+              <a href={OBTAINIUM_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-foreground">
+                Get Obtainium
+              </a>
+            </>
+          }
+          href={OBTAINIUM_ADD_URL}
+          action="Add"
+          actionLabel="Add Amethyst to Obtainium"
+        />
+        <StoreRow
+          name="APK file"
+          note={detail('arm64', formatSize(links.apk.size), 'no automatic updates')}
+          href={links.apk.href}
+          action="Download"
+          actionLabel="Download the Amethyst APK"
+        />
+      </ul>
     </>
   );
 }
@@ -179,7 +223,7 @@ export function DownloadPanel({ release }: { release: Release | null }) {
         <p className="text-muted-foreground">Amethyst isn't on iPhone or iPad yet. It runs on:</p>
       )}
 
-      <div role="tablist" aria-label="Platform" onKeyDown={onKeyDown} className="flex flex-wrap justify-center gap-2">
+      <div role="tablist" aria-label="Platform" onKeyDown={onKeyDown} className="flex flex-wrap justify-center gap-1.5 sm:gap-2">
         {PLATFORMS.map((p) => (
           <button
             key={p.id}
@@ -191,7 +235,7 @@ export function DownloadPanel({ release }: { release: Release | null }) {
             tabIndex={selected === p.id || (selected === null && p.id === 'android') ? 0 : -1}
             onClick={() => setSelected(p.id)}
             className={cn(
-              'rounded-full border px-4 py-1.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+              'rounded-full border px-3 py-1.5 text-sm font-medium sm:px-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
               selected === p.id
                 ? 'border-primary bg-primary/15 text-foreground'
                 : 'border-purple-500/20 text-muted-foreground hover:text-foreground',
