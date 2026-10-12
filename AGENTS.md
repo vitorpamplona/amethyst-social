@@ -15,12 +15,11 @@ This project is a Nostr client application built with React 18.x, TailwindCSS 3.
 ## Project Structure
 
 - `/src/components/`: UI components including NostrProvider for Nostr integration
-  - `/src/components/ui/`: shadcn/ui components (only the ones this project uses are vendored; add more with `npx shadcn@latest add <component>`)
+  - `/src/components/ui/`: shadcn/ui components, added on demand with `npx shadcn@latest add <component>` (none are used right now)
   - Page parts: `Header`, `DownloadPanel` (platform tabs and install options), `CopyCommand`, `Screenshots`, `Footer`
 - `/src/hooks/`: Custom hooks including:
   - `useLatestRelease`: Load the latest GitHub release so download links point at its files
   - `useAuthor`: Fetch a profile by pubkey
-  - `useAmethystUpdates`: Fetch the Amethyst project's Nostr notes and profile
 
   `useNostr` is imported directly from `@nostrify/react`, not from this directory.
 - `/src/pages/`: `Index` (the whole landing page) and `NotFound`
@@ -34,11 +33,9 @@ This project is a Nostr client application built with React 18.x, TailwindCSS 3.
 
 ## UI Components
 
-The project uses shadcn/ui components located in `@/components/ui`. Only the ones this site renders are vendored:
+The project uses shadcn/ui components, vendored into `@/components/ui`. Only the ones this site renders are vendored, and the download page renders none, so the folder doesn't exist right now.
 
-- **Avatar**, **Badge**, **Button**, **Card**, **Dialog**, **ScrollArea**, **Skeleton**
-
-Add any other component on demand with `npx shadcn@latest add <component>`, which also installs the Radix package it needs.
+Add a component on demand with `npx shadcn@latest add <component>`, which also installs the Radix package it needs.
 
 These components follow a consistent pattern using React's `forwardRef` and use the `cn()` utility for class name merging. Many are built on Radix UI primitives for accessibility and customized with Tailwind CSS.
 
