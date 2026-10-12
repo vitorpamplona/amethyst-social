@@ -95,20 +95,6 @@ html {
   @apply bg-primary/50;
 }
 
-/* Animation utilities */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
 /* Gradient backgrounds - Dark by default */
 .bg-hero-gradient {
   background: linear-gradient(135deg,
