@@ -61,7 +61,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
                 Something went wrong
               </h2>
               <p className="text-muted-foreground">
-                An unexpected error occurred. The error has been reported.
+                An unexpected error occurred. Reload the page to try again.
               </p>
             </div>
 
