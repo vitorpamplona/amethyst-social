@@ -7,17 +7,19 @@ export function Screenshots() {
       <div className="relative mx-auto max-w-5xl pb-[6%]">
         <img
           src={publicUrl('amethyst-desktop.webp')}
+          srcSet={`${publicUrl('amethyst-desktop-1100.webp')} 1100w, ${publicUrl('amethyst-desktop.webp')} 1743w`}
+          sizes="(min-width: 1056px) 1024px, calc(100vw - 2rem)"
           alt="Amethyst on macOS, showing the home feed, a video post and the notifications chart"
           width={1743}
           height={1199}
-          loading="lazy"
+          decoding="async"
           className="h-auto w-full"
         />
         <img
           src={publicUrl('amethyst-1.webp')}
           alt="Amethyst on Android, showing the home feed"
-          width={648}
-          height={1440}
+          width={480}
+          height={1067}
           loading="lazy"
           className="absolute bottom-0 right-0 h-auto w-[22%] rounded-[8%/3.6%] border border-purple-500/30 shadow-2xl shadow-black/60"
         />
