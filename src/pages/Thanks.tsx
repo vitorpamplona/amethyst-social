@@ -69,8 +69,7 @@ const Thanks = () => {
           </h1>
           <p className="text-lg text-muted-foreground md:text-xl">
             Amethyst is free and open source. Since {since}, {nf.format(supporters.people)} people have kept it going with
-            zaps. Zaps on each release note are split with the developers who built that version, {supporters.developers} of
-            them so far.
+            zaps.
           </p>
         </section>
 
@@ -132,7 +131,7 @@ const Thanks = () => {
         )}
 
         <p className="max-w-xl text-center text-sm text-muted-foreground">
-          Counted from public zap receipts to Vitor, to Amethyst, and to the developers on Amethyst's release notes, as of{' '}
+          Counted from public zap receipts to Vitor, to Amethyst, and to everyone a zap on an Amethyst post was split with, as of{' '}
           {updated}. Names link to profiles on Brainstorm. To be left off this page,{' '}
           <a
             href={`https://njump.me/${AMETHYST_NPUB}`}
