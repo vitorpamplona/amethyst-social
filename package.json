@@ -7,7 +7,8 @@
     "dev": "npm i --silent && vite",
     "build": "npm i --silent && vite build -l error && cp dist/index.html dist/404.html && echo 'Project built successfully!'",
     "test": "npm i --silent && tsc --noEmit && eslint && vitest run --reporter=dot --silent && vite build -l error && cp dist/index.html dist/404.html && echo 'All tests passed!'",
-    "deploy": "npm run build && npx -y nostr-deploy-cli deploy --skip-setup"
+    "deploy": "npm run build && npx -y nostr-deploy-cli deploy --skip-setup",
+    "supporters": "node scripts/supporters/update.mjs"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.6",
