@@ -9,6 +9,8 @@ export const FDROID_URL = 'https://f-droid.org/packages/com.vitorpamplona.amethy
 export const OBTAINIUM_ADD_URL = `https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/${REPO_URL}`;
 export const APK_SIGNATURE_URL = `${REPO_URL}#verifying-the-apk-signature`;
 export const AMETHYST_NPUB = 'npub142gywvjkq0dv6nupggyn2euhx4nduwc7yz5f24ah9rpmunr2s39se3xrj0';
+/** A Nostr profile on Brainstorm, the web client the site links people to. */
+export const profileUrl = (npub: string) => `https://brainstorm.world/p/${npub}`;
 
 export type Platform = 'android' | 'mac' | 'windows' | 'linux';
 export type DetectedPlatform = Platform | 'ios';

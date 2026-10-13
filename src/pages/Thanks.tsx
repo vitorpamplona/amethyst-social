@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { AMETHYST_NPUB } from '@/lib/downloads';
+import { AMETHYST_NPUB, profileUrl } from '@/lib/downloads';
 import { cn } from '@/lib/utils';
 import data from '@/data/supporters.json';
 
@@ -34,7 +34,7 @@ function Row({ entry: { rank, s } }: { entry: Ranked }) {
         {rank}
       </span>
       <a
-        href={`https://brainstorm.world/p/${npub}`}
+        href={profileUrl(npub)}
         target="_blank"
         rel="noopener noreferrer"
         title={npub}
@@ -160,7 +160,7 @@ const Thanks = () => {
           that were split with other developers, as of {updated}. Names link to profiles on Brainstorm. To be left off this
           page,{' '}
           <a
-            href={`https://njump.me/${AMETHYST_NPUB}`}
+            href={profileUrl(AMETHYST_NPUB)}
             target="_blank"
             rel="noopener noreferrer"
             className="underline underline-offset-4 hover:text-foreground"
