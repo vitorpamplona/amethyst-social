@@ -89,8 +89,12 @@ const Thanks = () => {
             <span className="text-gradient">Thank you</span>
           </h1>
           <p className="text-lg text-muted-foreground md:text-xl">
-            Amethyst is free and open source. Since {since}, {nf.format(data.people)} people have kept it going with zaps.
-            Here is every one of them, by how much they have given.
+            Amethyst is free and open source, and runs on value for value. Since {since}, {nf.format(data.people)} people
+            have kept it going with zaps. Here is every one of them, by how much they have given.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Only public zaps on Nostr are listed. Grants, private donations and other support are not, and are just as
+            appreciated.
           </p>
         </section>
 
@@ -152,7 +156,7 @@ const Thanks = () => {
         </section>
 
         <p className="max-w-xl text-center text-sm text-muted-foreground">
-          Counted from public lightning, onchain and Cashu zaps to Vitor and to Amethyst, and from zaps on Amethyst's posts
+          Counted only from public lightning, onchain and Cashu zaps to Vitor and to Amethyst, and from zaps on Amethyst's posts
           that were split with other developers, as of {updated}. Names link to profiles on Brainstorm. To be left off this
           page,{' '}
           <a
