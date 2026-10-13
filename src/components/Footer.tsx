@@ -1,11 +1,10 @@
-import { Heart } from 'lucide-react';
-import { AMETHYST_NPUB, APK_SIGNATURE_URL, REPO_URL } from '@/lib/downloads';
+import { AMETHYST_NPUB, APK_SIGNATURE_URL, REPO_URL, profileUrl } from '@/lib/downloads';
 import { publicUrl } from '@/lib/utils';
 
 const links = [
   { label: 'Supporters', href: publicUrl('thanks'), internal: true },
   { label: 'Source code', href: REPO_URL },
-  { label: 'Follow on Nostr', href: `https://njump.me/${AMETHYST_NPUB}` },
+  { label: 'Follow on Nostr', href: profileUrl(AMETHYST_NPUB) },
   { label: 'Verify the APK signature', href: APK_SIGNATURE_URL },
   { label: 'Translate', href: 'https://crowdin.com/project/amethyst-social' },
   { label: 'What is Nostr?', href: 'https://nostr.org/' },
@@ -27,15 +26,7 @@ export function Footer() {
             </a>
           ))}
         </nav>
-        <p className="flex flex-wrap items-center justify-center gap-1">
-          <span>MIT License.</span>
-          <span>Vibed with</span>
-          <Heart className="h-4 w-4 fill-current text-red-500" aria-label="love" />
-          <span>using</span>
-          <a href="https://shakespeare.diy" target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:underline">
-            Shakespeare
-          </a>
-        </p>
+        <p>MIT License.</p>
       </div>
     </footer>
   );

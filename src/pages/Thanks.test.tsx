@@ -4,7 +4,9 @@ import { expect, test } from 'vitest';
 import Thanks from './Thanks';
 import data from '@/data/supporters.json';
 
-const profileLinks = () => screen.getAllByRole('link').filter((a) => a.getAttribute('href')?.startsWith('https://brainstorm.world/p/npub1'));
+// Supporter rows only: the footer and the opt-out note also link to Amethyst's own profile.
+const profileLinks = () =>
+  screen.getAllByRole('link').filter((a) => a.closest('li') && a.getAttribute('href')?.startsWith('https://brainstorm.world/p/npub1'));
 
 test('ranks supporters by total, largest first', () => {
   const totals = data.supporters.map((s) => s[2] as number);
