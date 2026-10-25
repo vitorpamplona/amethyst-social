@@ -7,6 +7,7 @@ import {
   formatSize,
   OBTAINIUM_ADD_URL,
   OBTAINIUM_URL,
+  ORCHARD_URL,
   PLATFORMS,
   PLAY_STORE_URL,
   resolveDownloads,
@@ -115,13 +116,21 @@ function AndroidPanel({ links }: { links: Links }) {
           actionLabel="Add Amethyst to Obtainium"
         />
         <StoreRow
-          name="APK file"
-          note={detail('arm64', formatSize(links.apk.size), 'no automatic updates')}
-          href={links.apk.href}
+          name="Play APK"
+          note={detail('Google push notifications', 'arm64', formatSize(links.apkPlay.size))}
+          href={links.apkPlay.href}
           action="Download"
-          actionLabel="Download the Amethyst APK"
+          actionLabel="Download the Google Play APK"
+        />
+        <StoreRow
+          name="F-Droid APK"
+          note={detail('No Google services', 'arm64', formatSize(links.apkFdroid.size))}
+          href={links.apkFdroid.href}
+          action="Download"
+          actionLabel="Download the F-Droid APK"
         />
       </ul>
+      <p className="-mt-2 text-sm text-muted-foreground">APK files don't update on their own.</p>
     </>
   );
 }
@@ -189,6 +198,13 @@ function LinuxPanel({ links }: { links: Links }) {
           <FileLink link={links.tarArm64}>.tar.gz</FileLink>
         </Row>
       </div>
+      <p className="text-sm text-muted-foreground">
+        Also on{' '}
+        <a href={ORCHARD_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-foreground">
+          Orchard
+        </a>
+        , the Nostr Flatpak store.
+      </p>
     </>
   );
 }

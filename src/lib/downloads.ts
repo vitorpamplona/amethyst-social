@@ -7,6 +7,7 @@ export const OBTAINIUM_URL = 'https://github.com/ImranR98/Obtainium';
 export const FDROID_URL = 'https://f-droid.org/packages/com.vitorpamplona.amethyst/';
 /** Obtainium's own redirect page: it opens the app with Amethyst's repository filled in. */
 export const OBTAINIUM_ADD_URL = `https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/${REPO_URL}`;
+export const ORCHARD_URL = 'https://github.com/Letdown2491/orchard';
 export const APK_SIGNATURE_URL = `${REPO_URL}#verifying-the-apk-signature`;
 export const AMETHYST_NPUB = 'npub142gywvjkq0dv6nupggyn2euhx4nduwc7yz5f24ah9rpmunr2s39se3xrj0';
 /** A Nostr profile on Brainstorm, the web client the site links people to. */
@@ -56,7 +57,8 @@ export function detectPlatform(userAgent: string, maxTouchPoints = 0): DetectedP
 }
 
 const FILES = {
-  apk: /^amethyst-fdroid-arm64-v8a-v.+\.apk$/,
+  apkPlay: /^amethyst-googleplay-arm64-v8a-v.+\.apk$/,
+  apkFdroid: /^amethyst-fdroid-arm64-v8a-v.+\.apk$/,
   dmg: /^amethyst-desktop-.+-macos-arm64\.dmg$/,
   msi: /^amethyst-desktop-.+-windows-x64\.msi$/,
   zipX64: /^amethyst-desktop-.+-windows-x64\.zip$/,
