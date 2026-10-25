@@ -56,7 +56,8 @@ export function detectPlatform(userAgent: string, maxTouchPoints = 0): DetectedP
 }
 
 const FILES = {
-  apk: /^amethyst-fdroid-arm64-v8a-v.+\.apk$/,
+  apkPlay: /^amethyst-googleplay-arm64-v8a-v.+\.apk$/,
+  apkFdroid: /^amethyst-fdroid-arm64-v8a-v.+\.apk$/,
   dmg: /^amethyst-desktop-.+-macos-arm64\.dmg$/,
   msi: /^amethyst-desktop-.+-windows-x64\.msi$/,
   zipX64: /^amethyst-desktop-.+-windows-x64\.zip$/,

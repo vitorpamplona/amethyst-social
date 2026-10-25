@@ -115,13 +115,21 @@ function AndroidPanel({ links }: { links: Links }) {
           actionLabel="Add Amethyst to Obtainium"
         />
         <StoreRow
-          name="APK file"
-          note={detail('arm64', formatSize(links.apk.size), 'no automatic updates')}
-          href={links.apk.href}
+          name="Play APK"
+          note={detail('Google push notifications', 'arm64', formatSize(links.apkPlay.size))}
+          href={links.apkPlay.href}
           action="Download"
-          actionLabel="Download the Amethyst APK"
+          actionLabel="Download the Google Play APK"
+        />
+        <StoreRow
+          name="F-Droid APK"
+          note={detail('No Google services', 'arm64', formatSize(links.apkFdroid.size))}
+          href={links.apkFdroid.href}
+          action="Download"
+          actionLabel="Download the F-Droid APK"
         />
       </ul>
+      <p className="-mt-2 text-sm text-muted-foreground">APK files don't update on their own.</p>
     </>
   );
 }
