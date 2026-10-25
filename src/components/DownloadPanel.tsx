@@ -7,7 +7,6 @@ import {
   formatSize,
   OBTAINIUM_ADD_URL,
   OBTAINIUM_URL,
-  ORCHARD_INSTALL,
   ORCHARD_URL,
   PLATFORMS,
   PLAY_STORE_URL,
@@ -173,44 +172,6 @@ function WindowsPanel({ links }: { links: Links }) {
   );
 }
 
-function Step({ n, children }: { n: number; children: ReactNode }) {
-  return (
-    <li className="flex min-w-0 items-start gap-3">
-      <span aria-hidden="true" className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-purple-500/20 text-xs font-semibold text-foreground">
-        {n}
-      </span>
-      <div className="flex min-w-0 flex-1 flex-col gap-2">{children}</div>
-    </li>
-  );
-}
-
-function OrchardCard() {
-  return (
-    <section aria-labelledby="orchard-title" className="w-full max-w-md rounded-xl border border-purple-500/20 bg-purple-950/40 px-4 py-4 text-left">
-      <h3 id="orchard-title" className="font-medium text-foreground">
-        Or get it from Orchard
-      </h3>
-      <p className="text-sm text-muted-foreground">
-        The Nostr Flatpak store. Keeps Amethyst up to date.{' '}
-        <a href={ORCHARD_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-foreground">
-          About Orchard
-        </a>
-      </p>
-      <ol className="mt-4 grid gap-3 text-sm text-muted-foreground">
-        <Step n={1}>
-          <span>Install Orchard by pasting this into a terminal:</span>
-          <CopyCommand text={ORCHARD_INSTALL} />
-        </Step>
-        <Step n={2}>
-          <span>
-            Open Orchard, find <span className="text-foreground">Amethyst</span> and install it.
-          </span>
-        </Step>
-      </ol>
-    </section>
-  );
-}
-
 function LinuxPanel({ links }: { links: Links }) {
   return (
     <>
@@ -237,7 +198,13 @@ function LinuxPanel({ links }: { links: Links }) {
           <FileLink link={links.tarArm64}>.tar.gz</FileLink>
         </Row>
       </div>
-      <OrchardCard />
+      <p className="text-sm text-muted-foreground">
+        Also on{' '}
+        <a href={ORCHARD_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-foreground">
+          Orchard
+        </a>
+        , the Nostr Flatpak store.
+      </p>
     </>
   );
 }

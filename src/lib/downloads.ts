@@ -8,9 +8,6 @@ export const FDROID_URL = 'https://f-droid.org/packages/com.vitorpamplona.amethy
 /** Obtainium's own redirect page: it opens the app with Amethyst's repository filled in. */
 export const OBTAINIUM_ADD_URL = `https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/${REPO_URL}`;
 export const ORCHARD_URL = 'https://github.com/Letdown2491/orchard';
-/** Orchard's release files end in `uname -m` (x86_64 or aarch64), so one command fits both. */
-const ORCHARD_FILE = 'orchard-linux-$(uname -m).oci.tgz';
-export const ORCHARD_INSTALL = `curl -LO ${ORCHARD_URL}/releases/latest/download/${ORCHARD_FILE} && flatpak install --user -y oci-archive:${ORCHARD_FILE}`;
 export const APK_SIGNATURE_URL = `${REPO_URL}#verifying-the-apk-signature`;
 export const AMETHYST_NPUB = 'npub142gywvjkq0dv6nupggyn2euhx4nduwc7yz5f24ah9rpmunr2s39se3xrj0';
 /** A Nostr profile on Brainstorm, the web client the site links people to. */
