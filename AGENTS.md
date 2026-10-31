@@ -236,3 +236,14 @@ The validation ensures code quality and catches errors before deployment, regard
 If git is available in your environment (through a `shell` tool, or other git-specific tools), you should utilize `git log` to understand project history. Use `git status` and `git diff` to check the status of your changes, and if you make a mistake use `git checkout` to restore files.
 
 When your changes are complete and validated, create a git commit with a descriptive message summarizing your changes.
+
+## Remotes and pull requests
+
+The repo is on GitHub, `github.com/vitorpamplona/amethyst-social`, which holds the canonical `main`,
+and on nostr as a NIP-34 repository,
+`nostr://npub1gcxzte5zlkncx26j68ez60fzkvtkm9e0vrwdcvsjakxf9mu9qewqlfnj5z/relay.ngit.dev/amethyst-social`:
+a push to that remote goes to its GRASP git servers and to GitHub. A PR can go out either way: a
+GitHub PR (`gh`), or a nostr proposal (`ngit`, a `pr/…` branch, reviewed on
+[gitworkshop.dev](https://gitworkshop.dev/npub1gcxzte5zlkncx26j68ez60fzkvtkm9e0vrwdcvsjakxf9mu9qewqlfnj5z/relay.ngit.dev/amethyst-social)).
+Remote names vary per clone, so identify them by URL. Open a PR only when the human you work for
+asks, and before opening, revising or merging one by either path, use the `ngit-pr` skill.
